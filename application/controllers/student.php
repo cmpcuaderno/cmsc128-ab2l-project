@@ -13,5 +13,8 @@
 			$this->load->view('student_profile.php', $data);		
 		}
 
+		public function grades(){
+			$this->load->view('grades');
+		}
 	}
 ?>
