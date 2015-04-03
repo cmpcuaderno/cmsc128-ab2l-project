@@ -4,7 +4,8 @@
 			Adviser Profile
 		</title>
 	</head>
-	
+	<a href=edit>Edit your profile</a>
+
 	<body>
 		<h1>Adviser Profile </h1>
 		<hr>
