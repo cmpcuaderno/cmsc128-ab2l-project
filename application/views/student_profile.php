@@ -13,7 +13,9 @@
 			<div class="top-panel">
 				<h1>Adviser-Student Records Management System</h1>
 				<h3>Student's Profile</h3>
+				<a href="<?php echo site_url('student/') ?>"><button type="button">View Student profile</button></a>
 				<a href="<?php echo site_url('student/grades') ?>"><button type="button">View grades</button></a>
+				<a href="<?php echo site_url('student/update') ?>"><button type="button">Update Student profile</button></a>
 				<button type="button">Log out</button>
 			</div>
 
