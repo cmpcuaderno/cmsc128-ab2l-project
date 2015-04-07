@@ -255,7 +255,11 @@ if ( ! function_exists('get_config'))
 		}
 
 		$_config[0] =& $config;
+<<<<<<< HEAD
 		return $_config[0]; 
+=======
+		return $_config[0];
+>>>>>>> 4bd96aed2e891b5f44ec5214868aedd595dd5a73
 	}
 }
 
