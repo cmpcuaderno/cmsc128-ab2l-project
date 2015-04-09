@@ -13,7 +13,10 @@ class Home extends CI_Controller {
    {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $this->load->view('home_view', $data);
+	 $this->load->helper('url');
+	 $this->load->view('components/header.php');
+     $this->load->view('admin/admin_view', $data);
+	 $this->load->view('components/footer.php');	
    }
    else
    {
@@ -28,8 +31,8 @@ class Home extends CI_Controller {
     $this->load->library('session');
     $this->load->helper('url');
    $this->session->unset_userdata('logged_in');
-   session_destroy();
-   redirect('home', 'refresh');
+   //session_destroy();
+   redirect('login', 'refresh');
  }
 
 }

@@ -17,15 +17,21 @@ class VerifyLogin extends CI_Controller {
    $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 
+	//addslashes
+	//mysql_escape_string
+	//transform data
+
+   
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
      $this->load->view('login_view');
-     $this->load->library('session');
+	 $this->load->view('components/footer.php');	
    }
    else
    {
      //Go to private area
+	 $this->load->library('session');
      redirect('home', 'refresh');
    }
 
@@ -51,6 +57,7 @@ class VerifyLogin extends CI_Controller {
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }
+	$this->load->library('session');
      return TRUE;
    }
    else

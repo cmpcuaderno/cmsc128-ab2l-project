@@ -37,10 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['adviser'] = 'welcome';
-$route['adviser/profile'] = 'adviser/profile';
-$route['adviser/edit'] = 'adviser/edit';
-$route['default_controller'] = "welcome";
+
+$route['default_controller'] = "login";
 $route['404_override'] = '';
 
 
