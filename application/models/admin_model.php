@@ -22,6 +22,34 @@
         
             return true;
         }
+        
+        public function noOfGraduates(){
+		$this->db->select('employee_number');
+		$this->db->from('adviser');
+		$query = $this->db->get();
+		
+		foreach ($query->result() as $data){
+                    $this->db->select('student_number');
+                    $this->db->from('student_adviser');
+                    $this->db->where('employee_number = "$data"');
+                    $q = $this->db->get();
+                    
+                        $counter = 0;
+                        foreach ($q->result() as $d){
+                            $this->db->select('student_number');
+                            $this->db->from('student');
+                            $this->db->where('classification = "graduate" AND student_number = "$d"');
+                            if ($this->db->get()->num_rows()==1){
+                                $counter++;
+                            }
+                        }
+                        $adviser = array($data => $counter);
+                        
+                    
+		}
+		
+		return $adviser;
+        }
     
     }
     

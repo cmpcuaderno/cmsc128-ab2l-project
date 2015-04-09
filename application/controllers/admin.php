@@ -45,14 +45,11 @@ class Admin extends CI_Controller{
     }
     
     public function noOfGraduates(){
-                $this->load->helper("url");
-		$this->db->select('student_number');
-		$this->db->from('student');
-		$this->db->where('classification', "graduate");
-		$query = $this->db->get();
-		$data['student'] = $query->result();
-		$this->load->view('components/header.php');
-		$this->load->view('student/no_of_graduates_view.php', $data);	
-		$this->load->view('components/footer.php');			
+                $this->load->model('admin_model');
+                $result = $this->user->noOfGraduates();
+                
+                $this->load->view('components/header.php');
+                $this->load->view('student/no_of_graduates_view.php', $result);
+                $this->load->view('components/footer.php');
         }
 }
