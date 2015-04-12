@@ -19,7 +19,7 @@
 			<div class="pure-u-2-3 l-box"><p><?php echo $stud->home_address ?></p></div>
 		</div>
 		<?php endforeach; ?>
-		
+
 		<div class="table-responsive">
         <table class="mq-table pure-table-bordered pure-table">
 			<thead>

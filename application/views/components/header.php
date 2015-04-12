@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Adviser-Student Records Management System</title>
-	
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/pure-min.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/design.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/grids-responsive.css"); ?>">
