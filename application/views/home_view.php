@@ -1,9 +1,3 @@
-<?php
-    session_start();
-    $_SESSION["loggedin"] = false;
-    session_destroy();
-?>
-
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8" />
@@ -11,7 +5,7 @@
     </head>
 
     <body>
-        
-
+        <h1>Welcome!</h1>
+        <a href="home/logout">Logout</a>
     </body>
 </html>

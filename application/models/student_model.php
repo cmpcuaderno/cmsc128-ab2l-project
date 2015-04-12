@@ -1,5 +1,5 @@
 <?php
-Class Student extends CI_Model
+Class Student_model extends CI_Model
 {
  function login($username, $password, $isadmin)
  {

@@ -1,5 +1,27 @@
-<?php 
-	$this->load->helper('url');
+<?php
+/*
+$host="localhost"; // Host name 
+$username="root"; // Mysql username 
+$password=""; // Mysql password 
+$db_name="StudentAdviserRecord"; // Database name 
+$tbl_name="student"; // Table name 
+
+// Connect to server and select databse.
+$con = mysqli_connect($host, $username, $password, $db_name);
+				 if (mysqli_connect_errno())
+				  {
+				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				  }
+
+// username and password of the student account
+$myusername="student1"; 		//change this to the value acquired from the login 
+$mypassword="student1";			//$_POST['password']
+
+
+$result = mysqli_query($con, "SELECT * FROM student WHERE username='$myusername' and password='$mypassword' "); 
+$row = mysqli_fetch_array($result);	
+*/
+
 ?>
 
 <!DOCTYPE HTML>
@@ -12,10 +34,6 @@
 	<body>
 			<div class="top-panel">
 				<h1>Adviser-Student Records Management System</h1>
-				<h3>Student's Profile</h3>
-				<a href="<?php echo site_url('student/') ?>"><button type="button">View Student profile</button></a>
-				<a href="<?php echo site_url('student/grades') ?>"><button type="button">View grades</button></a>
-				<a href="<?php echo site_url('student/update') ?>"><button type="button">Update Student profile</button></a>
 				<button type="button">Log out</button>
 			</div>
 

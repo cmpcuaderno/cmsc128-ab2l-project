@@ -1,5 +1,5 @@
 <?php
-Class Adviser_model extends CI_Model
+Class Login_model extends CI_Model
 {
  function login($username, $password, $isadmin)
  {
