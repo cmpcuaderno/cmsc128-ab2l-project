@@ -56,4 +56,12 @@ class Adviser extends CI_Controller{
 		/* redirect to adviser profile */
 		redirect('adviser/profile');
 	}
+
+	/**
+	 * get advisees with 'Graduate' classification
+	 */
+	public function grad_advisees(){
+		$data['grad_advisees'] = $this->adviser_model->get_grad_advisees($this->en);
+		$this->load->view('adviser/grad_advisees', $data);
+	}
 }

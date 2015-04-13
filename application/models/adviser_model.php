@@ -48,4 +48,15 @@ Class Adviser_model extends CI_Model
     $this->db->where('employee_number', $employee_number);
     $this->db->update('adviser', $data);
   }
+
+  /**
+   * get students with 'Graduate' classification under a target adviser
+   * @param  String $employee_number - employee number of the adviser
+   * @return array - all graduate students under an adviser
+   */
+  public function get_grad_advisees($employee_number){
+    $query = $this->db->query("Select s.student_number, s.last_name, s.first_name, s.classification from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND s.classification = 'Graduate'");
+
+      return $query->result_array();
+  }
 }

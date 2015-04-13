@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`student_number`, `username`, `password`, `last_name`, `first_name`, `middle_name`, `classification`, `curriculum`, `contact_number`, `email_address`, `college_address`, `home_address`, `relative`) VALUES
-('2012-0000', 'student1', 'student1', 'Maldonado', 'Tawnya', 'Ericson', 'Freshman', 'BSCS SPR123', '8602533171', 'TawnyaEMaldonado@dayrep.com ', '556 Hart Street\r\nEnfield, CT 06082 ', '556 Hart Street\r\nEnfield, CT 06082 ', 'a'),
+('2012-0000', 'student1', 'student1', 'Maldonado', 'Tawnya', 'Ericson', 'Graduate', 'BSCS SPR123', '8602533171', 'TawnyaEMaldonado@dayrep.com ', '556 Hart Street\r\nEnfield, CT 06082 ', '556 Hart Street\r\nEnfield, CT 06082 ', 'a'),
 ('2012-0001', 'student2', 'student2', 'Fox', 'Guy', 'Sai', 'Senior', 'BSCS SPR123', '3235993066', 'GuySFox@dayrep.com ', '3418 Evergreen Lane\r\nLos Angeles, CA 90017 ', '3418 Evergreen Lane\r\nLos Angeles, CA 90017 ', 'b'),
 ('2012-0002', 'student3', 'student3', 'NIeves', 'Dorris', 'Por', 'Senior', 'BSCS SPR123', '9313442571', 'DorrisPNieves@armyspy.com', '4995 McDowell Street\r\nNashville, TN 37214 ', '4995 McDowell Street\r\nNashville, TN 37214 ', 'c'),
 ('2012-0003', 'student4', 'student4', 'Allen', 'Mary', 'Dale', 'Junior', 'BSCS SPR123', '9788048269', 'MaryDAllen@rhyta.com', '3428 Christie Way\r\nLexington, MA 02173 ', '3428 Christie Way\r\nLexington, MA 02173 ', 'd'),
@@ -149,16 +149,16 @@ CREATE TABLE IF NOT EXISTS `student_adviser` (
 --
 
 INSERT INTO `student_adviser` (`student_number`, `employee_number`, `isGraduated`, `start_date`, `end_date`) VALUES
-('2012-0000', '0000-0000001', 0, NULL, NULL),
-('2012-0001', '0000-0000002', 0, NULL, NULL),
-('2012-0002', '0000-0000001', 0, NULL, NULL),
-('2012-0003', '0000-0000002', 0, NULL, NULL),
-('2012-0004', '0000-0000003', 0, NULL, NULL),
-('2012-0005', '0000-0000003', 0, NULL, NULL),
-('2012-0006', '0000-0000004', 0, NULL, NULL),
-('2012-0007', '0000-0000004', 0, NULL, NULL),
-('2012-0008', '0000-0000005', 0, NULL, NULL),
-('2012-0009', '0000-0000005', 0, NULL, NULL);
+('2012-0000', '1234-0000001', 0, NULL, NULL),
+('2012-0001', '1234-0000002', 0, NULL, NULL),
+('2012-0002', '1234-0000001', 0, NULL, NULL),
+('2012-0003', '1234-0000002', 0, NULL, NULL),
+('2012-0004', '1234-0000003', 0, NULL, NULL),
+('2012-0005', '1234-0000003', 0, NULL, NULL),
+('2012-0006', '1234-0000004', 0, NULL, NULL),
+('2012-0007', '1234-0000004', 0, NULL, NULL),
+('2012-0008', '1234-0000005', 0, NULL, NULL),
+('2012-0009', '1234-0000005', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
