@@ -31,23 +31,11 @@
 		foreach ($query->result() as $data){
                     $this->db->select('student_number');
                     $this->db->from('student_adviser');
-                    $this->db->where('employee_number = "$data"');
-                    $q = $this->db->get();
+                    $this->db->where('isGraduated = 1 AND employee_number = "$data->employee_number"');
                     
-                        $counter = 0;
-                        foreach ($q->result() as $d){
-                            $this->db->select('student_number');
-                            $this->db->from('student');
-                            $this->db->where('classification = "graduate" AND student_number = "$d"');
-                            if ($this->db->get()->num_rows()==1){
-                                $counter++;
-                            }
-                        }
-                        $adviser = array($data => $counter);
-                        
-                    
-		}
-		
+                    $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => $this->db->get()->num_rows());
+                }
+                
 		return $adviser;
         }
     

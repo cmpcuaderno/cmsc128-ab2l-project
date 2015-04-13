@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.12
+-- version 4.4.1.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2015 at 09:43 AM
+-- Generation Time: Apr 13, 2015 at 07:10 PM
 -- Server version: 10.0.17-MariaDB-log
--- PHP Version: 5.6.6
+-- PHP Version: 5.6.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -61,11 +61,13 @@ CREATE TABLE IF NOT EXISTS `adviser` (
 --
 
 INSERT INTO `adviser` (`employee_number`, `username`, `password`, `last_name`, `first_name`, `middle_name`, `specialization`, `level`) VALUES
+('1234', 'mervin', 'merin', 'merinvm', 'mervin', 'merinv', 'mervin', 'mervin'),
 ('1234-0000001', 'adviser1', 'adviser1', 'Rowan', 'Debra', 'Su', 'Applied Computer Science: Computer Graphics and Visualization', 'Associate Professor'),
 ('1234-0000002', 'adviser2', 'adviser2', 'Wulf', 'Joshua', 'Pi', 'Theoretical Computer Science: Information and Coding Theory', 'Professor'),
 ('1234-0000003', 'adviser3', 'adviser3', 'Smith', 'Particia', 'Jan', 'Theoretical Computer Science: Algorithms and Data Structures', 'Instructor'),
 ('1234-0000004', 'adviser4', 'adviser4', 'Sweet', 'Joshua', 'Jill', 'Theoretical Computer Science: Concurrent, Parallel and Distributed Computing', 'Professor'),
-('1234-0000005', 'adviser5', 'adviser5', 'Dale', 'Paula', 'Slea', 'Applied Computer Science: Artificial Intelligence', 'Assistant Professor');
+('1234-0000005', 'adviser5', 'adviser5', 'Dale', 'Paula', 'Slea', 'Applied Computer Science: Artificial Intelligence', 'Assistant Professor'),
+('2012-12345', 'michael', 'michael', 'michael', 'michael', 'michael', 'michael', 'michael');
 
 -- --------------------------------------------------------
 
@@ -137,6 +139,7 @@ INSERT INTO `student` (`student_number`, `username`, `password`, `last_name`, `f
 CREATE TABLE IF NOT EXISTS `student_adviser` (
   `student_number` varchar(10) NOT NULL,
   `employee_number` varchar(255) NOT NULL,
+  `isGraduated` tinyint(1) NOT NULL DEFAULT '0',
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -145,17 +148,17 @@ CREATE TABLE IF NOT EXISTS `student_adviser` (
 -- Dumping data for table `student_adviser`
 --
 
-INSERT INTO `student_adviser` (`student_number`, `employee_number`, `start_date`, `end_date`) VALUES
-('2012-0000', '0000-0000001', NULL, NULL),
-('2012-0001', '0000-0000002', NULL, NULL),
-('2012-0002', '0000-0000001', NULL, NULL),
-('2012-0003', '0000-0000002', NULL, NULL),
-('2012-0004', '0000-0000003', NULL, NULL),
-('2012-0005', '0000-0000003', NULL, NULL),
-('2012-0006', '0000-0000004', NULL, NULL),
-('2012-0007', '0000-0000004', NULL, NULL),
-('2012-0008', '0000-0000005', NULL, NULL),
-('2012-0009', '0000-0000005', NULL, NULL);
+INSERT INTO `student_adviser` (`student_number`, `employee_number`, `isGraduated`, `start_date`, `end_date`) VALUES
+('2012-0000', '0000-0000001', 0, NULL, NULL),
+('2012-0001', '0000-0000002', 0, NULL, NULL),
+('2012-0002', '0000-0000001', 0, NULL, NULL),
+('2012-0003', '0000-0000002', 0, NULL, NULL),
+('2012-0004', '0000-0000003', 0, NULL, NULL),
+('2012-0005', '0000-0000003', 0, NULL, NULL),
+('2012-0006', '0000-0000004', 0, NULL, NULL),
+('2012-0007', '0000-0000004', 0, NULL, NULL),
+('2012-0008', '0000-0000005', 0, NULL, NULL),
+('2012-0009', '0000-0000005', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,13 +182,15 @@ CREATE TABLE IF NOT EXISTS `student_course` (
 -- Indexes for table `administrator`
 --
 ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`employee_number`), ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`employee_number`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `adviser`
 --
 ALTER TABLE `adviser`
-  ADD PRIMARY KEY (`employee_number`), ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`employee_number`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `course`
@@ -197,7 +202,8 @@ ALTER TABLE `course`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`student_number`), ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`student_number`),
+  ADD UNIQUE KEY `username` (`username`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

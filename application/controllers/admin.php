@@ -3,17 +3,17 @@
 class Admin extends CI_Controller{
     
     public function index(){
-		$this->load->helper("url");
-		$this->load->view('components/header.php');
+	$this->load->helper("url");
+	$this->load->view('components/header.php');
         $this->load->view('admin/admin_view');
-		$this->load->view('components/footer.php');	
+	$this->load->view('components/footer.php');	
     }
 
     public function register(){
-		$this->load->helper("url");
-		$this->load->view('components/header.php');
+	$this->load->helper("url");
+	$this->load->view('components/header.php');
         $this->load->view('admin/admin_view');
-		$this->load->view('components/footer.php');
+	$this->load->view('components/footer.php');
         /* loads the admin_view.php file in views folder */
     }
 
@@ -46,10 +46,11 @@ class Admin extends CI_Controller{
     
     public function noOfGraduates(){
                 $this->load->model('admin_model');
-                $result = $this->user->noOfGraduates();
+                $result = $this->admin_model->noOfGraduates();
                 
+                $this->load->helper("url");
                 $this->load->view('components/header.php');
-                $this->load->view('student/no_of_graduates_view.php', $result);
+                $this->load->view('admin/no_of_graduates_view.php', $result);
                 $this->load->view('components/footer.php');
         }
 }
