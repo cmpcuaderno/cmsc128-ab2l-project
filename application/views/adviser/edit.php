@@ -1,35 +1,53 @@
-<html>
-	<head>
-		<title>Edit Adviser Profile</title>
-	</head>
+<div class="pure-menu adminnav">
+	<ul class="pure-menu-list custom-restricted-width">
+	  
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
+		</li>
 
-	<?php $this->load->helper('form'); ?>
-	<body>
-		<h1>Edit Profile</h1>
-		<hr>
+		<li class="pure-menu-item pure-menu-selected">
+			<a href="<?php echo site_url('adviser/edit') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
+		</li>
+	  
+	</ul>
+</div>
 
-		<?php  echo form_open('adviser/update/'. $adviser['employee_number']); ?>
-
-		<label for="last_name"> Last name: </label>
-		<input type="input" name="last_name" value="<?php echo $adviser['last_name'] ?>"/>
-
-		<label for="first_name"> First name: </label>
-		<input type="input" name="first_name" value="<?php echo $adviser['first_name'] ?>"/>
-
-		<label for="middle_name"> Middle name: </label>
-		<input type="input" name="middle_name" value="<?php echo $adviser['middle_name'] ?>"/>
-
-		<br>
-		<label for="level"> Academic Rank: </label>
-		<input type="text" name="level" value="<?php echo $adviser['level'] ?>"/>
-		<br>
-		<label for="specialization"> Specialization: </label>
-		<textarea name="specialization"><?php echo $adviser['specialization'] ?></textarea>
-		<br>
-
-
-		<input type="submit" name="submit" value="Update Profile"/>
-
-		<?php echo form_close() ;?>
- 	</body>
-</html>
+<div class="body-panel">
+	<center>
+		<div>
+			<?php  echo form_open('adviser/update/'. $adviser['employee_number']); ?>
+			<form method="POST" action="#" class="mq-table pure-table-bordered pure-table">
+					<table border="true">
+						<tr>	
+							<td>Last name: </td>
+							<td><input class="pure-input" type="text" name="last_name" value="<?php echo $adviser['last_name'] ?>"></td>
+						</tr>
+						
+						<tr>	
+							<td>First name: </td>
+							<td><input class="pure-input" type="text" name="first_name" value="<?php echo $adviser['first_name'] ?>"></td>
+						</tr>
+						
+						<tr>	
+							<td>Middle name: </td>
+							<td><input class="pure-input" type="text" name="middle_name" value="<?php echo $adviser['middle_name'] ?>"></td>
+						</tr>
+						
+						<tr>	
+							<td>Academic Rank: </td>
+							<td><input class="pure-input" type="text" name="level" value="<?php echo $adviser['level'] ?>"></td>
+						</tr>
+						
+						<tr>	
+							<td>Specialization: </td>
+							<td><input class="pure-input" type="text" name="specialization" value="<?php echo $adviser['specialization'] ?>"></td>
+						</tr>
+	
+					</table>
+					<br><br>
+				<button class="pure-button" type="submit">Update</button>
+			</form>
+		</div>
+	</center>
+</div>
+<?php echo form_close() ;?>

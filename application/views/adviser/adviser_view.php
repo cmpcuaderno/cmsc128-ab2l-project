@@ -22,7 +22,7 @@
 		</div>
 
 		<!-- para maupdate ng adviser yung profile niya. di ko sure, kung kailangan to. paki ayos nalang. salamat. -Emman -->
-		<a href=adviser/edit>Edit</a>
+		<a href="adviser/edit">Edit</a>
 
 		<div class="pure-g container profile prof">
 			<div class="pure-u-1-3 l-box"><p>Name:</p></div>

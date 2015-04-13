@@ -50,5 +50,3 @@
 		</div>
 		<p><img src="<?php echo base_url("dist/images/logobg.png"); ?>" id="img2">
 	</div>
-</body>
-</html>

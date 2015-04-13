@@ -19,7 +19,7 @@ class Adviser extends CI_Controller{
 
 		$this->load->helper("url");
 		$this->load->view('components/header.php');
-		$this->load->view('adviser/adviser_view.php', $data);
+		$this->load->view('adviser/profile.php', $data);
 		$this->load->view('components/footer.php');
 		}
 
@@ -40,7 +40,9 @@ class Adviser extends CI_Controller{
 	 */
 	public function edit(){
 		$data['adviser'] = $this->adviser_model->get_adviser($this->en);
+		$this->load->view('components/header.php');
 		$this->load->view('adviser/edit', $data);
+		$this->load->view('components/footer.php');
 	}
 
 	/**
