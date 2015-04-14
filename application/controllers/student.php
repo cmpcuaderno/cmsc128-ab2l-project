@@ -22,7 +22,7 @@
 			$this->db->where('password', "student1");
 			$query = $this->db->get();
 			$data['student'] = $query->result();
-			
+
 			$this->load->view('components/header.php');
 			$this->load->view('student/student_profile', $data);
 			$this->load->view('components/footer.php');

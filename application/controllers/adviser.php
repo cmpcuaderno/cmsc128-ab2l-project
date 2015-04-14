@@ -64,4 +64,17 @@ class Adviser extends CI_Controller{
 		$data['grad_advisees'] = $this->adviser_model->get_grad_advisees($this->en);
 		$this->load->view('adviser/grad_advisees', $data);
 	}
+
+	/**
+	 * returns the advisee's profile
+	 * @param  string $student_number student number of the advisee
+	 */
+	public function view_advisee($student_number) {
+		$this->db->select('last_name, first_name, middle_name, student_number, classification, curriculum, contact_number, email_address, college_address, home_address');
+		$data['student'] = $this->db->get_where('student', array('student_number' => $student_number))->row_array();
+
+		$this->load->view('components/header.php');
+		$this->load->view('adviser/student_profile', $data);
+		$this->load->view('components/footer.php');
+	}
 }
