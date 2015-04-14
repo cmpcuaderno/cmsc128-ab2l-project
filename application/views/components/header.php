@@ -11,6 +11,21 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/grids-responsive.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/forms-min.css"); ?>">
 	<script src="<?php echo base_url("dist/jquery-2.1.1.min.js"); ?>"></script>
+	<script>
+		$(document).ready(function(){
+			//change cursor to pointer
+			$('.toggle').hover(function(){
+				$(this).css( 'cursor', 'pointer' );  
+			});
+			//set hide as default
+			$($('div.initHide')).hide();
+			//toggle between hide and show
+			$("#hideFirstSem").click(function(){
+				$("#firstsem").toggle("slow");
+				$("#button").show("slow");
+			});
+		});
+	</script>
 
 </head>
 

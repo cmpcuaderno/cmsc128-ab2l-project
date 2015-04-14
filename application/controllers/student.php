@@ -68,16 +68,20 @@
 			$this->load->view('components/footer.php');
 		}
 
-		function search_adviser(){
+		function search(){
 	        $this->load->helper(array('form'));
-	        $this->load->view('student_search_adviser_view');
+			$this->load->view('components/header.php');
+	        $this->load->view('student/search');
+			$this->load->view('components/footer.php');
 		}
 
 		function search_keyword(){
 			$adviser = $this->input->post('keyword');
 
 			$data['query']= $this->student_model->search_database($adviser);
-			$this->load->view('student_search_result_view',$data);      
+			$this->load->view('components/header.php');
+			$this->load->view('student/search_result',$data);
+			$this->load->view('components/footer.php');  
     	}
 	}
 ?>
