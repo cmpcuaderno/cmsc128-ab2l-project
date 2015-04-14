@@ -5,7 +5,7 @@ class Logout extends CI_Controller {
 	public function index()
 	{
 		$this->load->database();
-		session_start();
+		//session_start();
 		$_SESSION["loggedin"] = false;
 		session_destroy();
 		redirect('/','refresh');

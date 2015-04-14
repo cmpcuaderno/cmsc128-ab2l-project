@@ -1,0 +1,76 @@
+body{
+	background-color: #666666;
+}
+
+.header{
+	padding-top: 2.5em;
+	padding-bottom: 0.25em;
+	background-color: #141219;
+}
+
+.heading2{
+	color: white;
+	
+	font-size: 30px;
+}
+.heading{
+	color: white;
+	padding-left: 2em;
+	padding-left: 7em;
+}
+
+.logo{
+	margin-top: -70px;
+	margin-left: 2em;
+	width: 10%;
+	height: 10%;
+	position: relative;
+}
+
+.userinput{
+	margin-top: 50px;
+	width: 30%;
+	height: 25%;
+	padding: 10px;
+	border-radius: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #bdb69c;
+}
+
+.button-warning{
+	background: #727B84; /* this is a light blue */
+}
+.button-warning:hover{
+	background: white; /* this is a light blue */
+}
+.button-logout{
+	background: #666666; /* this is a light blue */
+}
+
+.fieldsetclass{
+	margin-left: -45px;
+}
+
+.studentprofile{
+	width: 80%;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.admintable{
+	margin-top: 2em;
+	margin-left: 20em;
+}
+
+.adminnav{
+	float: left;
+}
+
+#img2{
+	width: 25%;
+	height: 25%;
+	float: right;
+	opacity: 0.3;
+}

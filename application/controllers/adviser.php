@@ -1,34 +1,67 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Adviser extends CI_Controller {
-	/*
-	* Temporary, will be removed if logging in is already implemented.
-	* Modify value to change the adviser being loaded
-	*/
+class Adviser extends CI_Controller{
+	/**
+	 * temporary. will be removed once log in is implemented
+	 */
+	private $en = '1234-0000001';
 
-
-	public function __construct() {
+	/**
+	 * load the adviser model
+	 */
+	public function __construct(){
 		parent::__construct();
-		$this->load->model('adviser_model');							//load the adviser model
+		$this->load->model('adviser_model');
 	}
 
-	public function profile() {
-		$en = '1234-0000001';
-		$data['adviser'] = $this->adviser_model->get_adviser($en);		//fetch adviser with the specified employee number	
-	
+    public function index(){
+    	$data['adviser'] = $this->adviser_model->get_adviser($this->en);
+
+		$this->load->helper("url");
+		$this->load->view('components/header.php');
+		$this->load->view('adviser/profile.php', $data);
+		$this->load->view('components/footer.php');
+		}
+
+	/**
+	 * display adviser profile
+	 */
+	public function profile(){
+
+		$data['adviser'] = $this->adviser_model->get_adviser($this->en);
+
+		$this->load->view('components/header.php');
 		$this->load->view('adviser/profile', $data);
+		$this->load->view('components/footer.php');
 	}
 
-	public function edit() {
-		$en = '1234-0000001';			
-
-		$data['adviser'] = $this->adviser_model->get_adviser($en);		//fetch old data and display in edit page
+	/**
+	 * display adviser profile edit page
+	 */
+	public function edit(){
+		$data['adviser'] = $this->adviser_model->get_adviser($this->en);
+		$this->load->view('components/header.php');
 		$this->load->view('adviser/edit', $data);
+		$this->load->view('components/footer.php');
 	}
 
-	public function update($en) {
+	/**
+	 * update adviser details
+	 * @param  string $en employee number of target adviser
+	 */
+	public function update($en){
 		$this->load->helper('url');
-		$this->adviser_model->update($en);					//update the values of the adviser with the specified data
-		redirect('adviser/profile');						//redirect to profile
+		$this->adviser_model->update($en);
+
+		/* redirect to adviser profile */
+		redirect('adviser/profile');
+	}
+
+	/**
+	 * get advisees with 'Graduate' classification
+	 */
+	public function grad_advisees(){
+		$data['grad_advisees'] = $this->adviser_model->get_grad_advisees($this->en);
+		$this->load->view('adviser/grad_advisees', $data);
 	}
 }

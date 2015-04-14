@@ -1,7 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-Class Student_model extends CI_Model{
-  function login($username, $password, $isadmin){
+<?php
+Class Student_model extends CI_Model
+{
+ function login($username, $password, $isadmin)
+  {
     $this -> db -> select('User_session_id, User_account, User_password');
     $this -> db -> from('user');
     $this -> db -> where('User_account', $username);
@@ -20,13 +21,12 @@ Class Student_model extends CI_Model{
       return false;
     }
   }
- 
+
   function update_student($username,$password,$data){
     $this->db->where('username', $username);
     $this->db->where('password', $password);
     $this->db->update('student', $data);
   }
-
   function search_database($adviser){
         $this->db->select('*');
         $this->db->from('adviser');
@@ -42,6 +42,4 @@ Class Student_model extends CI_Model{
   }
 
 }
-
-/* End of file student.php */
-/* Location: ./application/models/student.php */
+?>
