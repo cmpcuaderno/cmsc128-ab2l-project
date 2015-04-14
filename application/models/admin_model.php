@@ -28,16 +28,18 @@
 		$this->db->from('adviser');
 		$query = $this->db->get();
 		
-		foreach ($query->result() as $data){
-                    $this->db->select('student_number');
-                    $this->db->from('student_adviser');
-                    $this->db->where('isGraduated = 1 AND employee_number = "$data->employee_number"');
-                    
-                    $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => $this->db->get()->num_rows());
+		foreach ($query->result() as $data){                    
+                    $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => get_grad_advisees($data););
                 }
                 
 		return $adviser;
         }
+        
+        public function get_grad_advisees($employee_number){
+    $query = $this->db->query("Select s.student_number, s.last_name, s.first_name, s.classification from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND s.classification = 'Graduate'");
+
+      return $query->num_rows();
+  }
         
         public function delAdviser($enum){
 	   		$this->db->delete('student_adviser', array('employee_number', $enum));
