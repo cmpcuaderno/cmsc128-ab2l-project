@@ -38,6 +38,10 @@
                 
 		return $adviser;
         }
+        
+        public function delAdviser($enum){
+	   		$this->db->delete('student_adviser', array('employee_number', $enum));
+		}
     
     }
     
