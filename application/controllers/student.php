@@ -51,21 +51,37 @@
 			$username= $this->input->post('username');
 			$password= $this->input->post('password');
 			$data = array(
-			'last_name' => $this->input->post('last_name'),
-			'first_name' => $this->input->post('first_name'),
-			'middle_name' => $this->input->post('middle_name'),
-			'student_number' => $this->input->post('student_number'),
-			'classification' => $this->input->post('classification'),
-			'curriculum' => $this->input->post('curriculum'),
-			'contact_number' => $this->input->post('contact_number'),
-			'email_address' => $this->input->post('email_address'),
-			'college_address' => $this->input->post('college_address'),
-			'home_address' => $this->input->post('home_address')
+				'last_name' => $this->input->post('last_name'),
+				'first_name' => $this->input->post('first_name'),
+				'middle_name' => $this->input->post('middle_name'),
+				'student_number' => $this->input->post('student_number'),
+				'classification' => $this->input->post('classification'),
+				'curriculum' => $this->input->post('curriculum'),
+				'contact_number' => $this->input->post('contact_number'),
+				'email_address' => $this->input->post('email_address'),
+				'college_address' => $this->input->post('college_address'),
+				'home_address' => $this->input->post('home_address')
 			);
 			$this->student_model->update_student($username,$password,$data);
 			$this->load->view('components/header.php');
 			$this->load->view('student/update_success');
 			$this->load->view('components/footer.php');
 		}
+
+		function search(){
+	        $this->load->helper(array('form'));
+			$this->load->view('components/header.php');
+	        $this->load->view('student/search');
+			$this->load->view('components/footer.php');
+		}
+
+		function search_keyword(){
+			$adviser = $this->input->post('keyword');
+
+			$data['query']= $this->student_model->search_database($adviser);
+			$this->load->view('components/header.php');
+			$this->load->view('student/search_result',$data);
+			$this->load->view('components/footer.php');  
+    	}
 	}
 ?>

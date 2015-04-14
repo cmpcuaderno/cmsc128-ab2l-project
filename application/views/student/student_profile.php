@@ -12,6 +12,10 @@
 		<li class="pure-menu-item">
 			<a href="<?php echo site_url('student/update') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
 		</li>
+
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
+		</li>
 	  
 	</ul>
 </div>

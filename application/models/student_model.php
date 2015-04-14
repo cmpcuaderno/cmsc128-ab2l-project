@@ -27,5 +27,19 @@ Class Student_model extends CI_Model
     $this->db->where('password', $password);
     $this->db->update('student', $data);
   }
+  function search_database($adviser){
+        $this->db->select('*');
+        $this->db->from('adviser');
+        $this->db->like('last_name', $adviser);
+        $this->db->or_like('middle_name', $adviser);
+        $this->db->or_like('first_name', $adviser);
+        $this->db->or_like('level', $adviser);
+        $this->db->or_like('specialization', $adviser);
+        $query = $this->db->get();
+       
+        return $query;
+        
+  }
+
 }
 ?>
