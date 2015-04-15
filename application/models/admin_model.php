@@ -15,7 +15,6 @@
                 'last_name' => $this->input->post('last_name'),
                 'specialization' => $this->input->post('specialization'),
                 'level' => $this->input->post('level')
-                //'registred' => time()
             );
 
             $this->db->insert('adviser',$data);
@@ -34,9 +33,9 @@
                     $this->db->where('isGraduated = 1 AND employee_number = "' . $data->employee_number . '"');
 
                     $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => $this->db->get()->num_rows());
-                }
 
-		return $adviser;
-        }
+        public function delAdviser($enum){
+	   		$this->db->delete('student_adviser', array('employee_number', $enum));
+		}
 
     }
