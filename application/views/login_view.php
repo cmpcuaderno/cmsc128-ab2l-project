@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Adviser-Student Records Management System</title>
-	
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/pure-min.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/design.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/grids-responsive.css"); ?>">
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 	<div class="logo">
-		<img src="<?php echo base_url("dist/images/logo1.png"); ?>" class="pure-img">
+		<img src="<?php echo base_url("dist/images/logo.png"); ?>" class="pure-img">
 	</div>
 	<div class="container">
 		<div class="userinput">
@@ -31,7 +31,7 @@
 			<?php echo form_open('verifylogin'); ?>
 			<form class="pure-form pure-form-aligned fieldsetclass" name="login" action="home.php" method="post">
 				<fieldset>
-				
+
 					<div class="pure-control-group">
 						<label for="name">Username</label>
 						<input class="pure-input-rounded" type="text" name="username" id="uLogin" maxlength="20" pattern="^[A-Za-z0-9]*$" placeholder="Username" required>
@@ -41,7 +41,7 @@
 						<label for="password">Password</label>
 						<input class="pure-input-rounded" type="password" name="password" id="uPassword" maxlength="20" pattern="^[\S]*$" placeholder="Password" required>
 					</div>
-					
+
 					<div class="pure-controls">
 						<button type="submit" class="pure-button button-warning pure-input-rounded">LOG IN</button>
 					</div>

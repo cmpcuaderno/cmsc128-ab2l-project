@@ -15,7 +15,7 @@
 		$(document).ready(function(){
 			//change cursor to pointer
 			$('.toggle').hover(function(){
-				$(this).css( 'cursor', 'pointer' );  
+				$(this).css( 'cursor', 'pointer' );
 			});
 			//set hide as default
 			$($('div.initHide')).hide();
@@ -41,5 +41,5 @@
 		</div>
 	</div>
 	<div class="logo">
-		<img src="<?php echo base_url("dist/images/logo1.png"); ?>" class="pure-img">
+		<img src="<?php echo base_url("dist/images/logo.png"); ?>" class="pure-img">
 	</div>

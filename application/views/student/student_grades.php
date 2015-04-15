@@ -1,14 +1,14 @@
 <div class="pure-menu adminnav">
 	<ul class="pure-menu-list custom-restricted-width">
-	  
-		<li class="pure-menu-item pure-menu-selected">
+
+		<li class="pure-menu-item">
 			<a href="<?php echo site_url('student/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
 		</li>
-	  
-		<li class="pure-menu-item pure-menu">
+
+		<li class="pure-menu-item pure-menu-selected">
 			<a href="<?php echo site_url('student/grades') ?>" class="pure-menu-link navLink" id="add">View Grades</a>
 		</li>
-		
+
 		<li class="pure-menu-item">
 			<a href="<?php echo site_url('student/update') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
 		</li>
@@ -16,7 +16,7 @@
 		<li class="pure-menu-item">
 			<a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
 		</li>
-	  
+
 	</ul>
 </div>
 
@@ -57,7 +57,7 @@
 				<!-- semester header >
 				<rect width="820" height="65" stroke-width="1" stroke="black" fill="white" y="150" x="1"  rx="5" ry="5"/>
 				<text x="300" y="190" fill="black" font-family="serif" font-size="20">2nd semester A.Y. 2012-2013</text>
-				
+
 					<!-- subjects header ->
 					<rect width="120" height="65" stroke-width="1" stroke="black" fill="white" y="220" x="1"  rx="5" ry="5"/>
 					<text x="25" y="258" fill="black" font-family="serif" font-size="20">CMSC 2</text>

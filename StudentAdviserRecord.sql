@@ -119,16 +119,16 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`student_number`, `username`, `password`, `last_name`, `first_name`, `middle_name`, `classification`, `curriculum`, `contact_number`, `email_address`, `college_address`, `home_address`, `relative`) VALUES
-('2012-0000', 'student1', 'student1', 'Maldonado', 'Tawnya', 'Ericson', 'Graduate', 'BSCS SPR123', '8602533171', 'TawnyaEMaldonado@dayrep.com ', '556 Hart Street\r\nEnfield, CT 06082 ', '556 Hart Street\r\nEnfield, CT 06082 ', 'a'),
+('2012-00000', 'student1', 'student1', 'Maldonado', 'Tawnya', 'Ericson', 'Graduate', 'BSCS SPR123', '8602533171', 'TawnyaEMaldonado@dayrep.com ', '556 Hart Street\r\nEnfield, CT 06082 ', '556 Hart Street\r\nEnfield, CT 06082 ', 'a'),
 ('2012-0001', 'student2', 'student2', 'Fox', 'Guy', 'Sai', 'Senior', 'BSCS SPR123', '3235993066', 'GuySFox@dayrep.com ', '3418 Evergreen Lane\r\nLos Angeles, CA 90017 ', '3418 Evergreen Lane\r\nLos Angeles, CA 90017 ', 'b'),
-('2012-0002', 'student3', 'student3', 'NIeves', 'Dorris', 'Por', 'Senior', 'BSCS SPR123', '9313442571', 'DorrisPNieves@armyspy.com', '4995 McDowell Street\r\nNashville, TN 37214 ', '4995 McDowell Street\r\nNashville, TN 37214 ', 'c'),
-('2012-0003', 'student4', 'student4', 'Allen', 'Mary', 'Dale', 'Junior', 'BSCS SPR123', '9788048269', 'MaryDAllen@rhyta.com', '3428 Christie Way\r\nLexington, MA 02173 ', '3428 Christie Way\r\nLexington, MA 02173 ', 'd'),
-('2012-0004', 'student5', 'student5', 'Martinez', 'Maureen', 'Ellan', 'Junior', 'BSCS SPR123', '6269693549', 'MaureenEMartinez@armyspy.com', '3012 Walkers Ridge Way\r\nAzusa, CA 91702 ', '3012 Walkers Ridge Way\r\nAzusa, CA 91702 ', 'e'),
-('2012-0005', 'student6', 'student6', 'McClinton', 'Kathryn', 'James', 'Sophomore', 'BSCS SPR123', '4015747958', 'KathrynJMcClinton@armyspy.com', '4109 Winding Way\r\nProvidence, RI 02905 ', '4109 Winding Way\r\nProvidence, RI 02905 ', 'f'),
+('2012-00002', 'student3', 'student3', 'NIeves', 'Dorris', 'Por', 'Senior', 'BSCS SPR123', '9313442571', 'DorrisPNieves@armyspy.com', '4995 McDowell Street\r\nNashville, TN 37214 ', '4995 McDowell Street\r\nNashville, TN 37214 ', 'c'),
+('2012-00003', 'student4', 'student4', 'Allen', 'Mary', 'Dale', 'Junior', 'BSCS SPR123', '9788048269', 'MaryDAllen@rhyta.com', '3428 Christie Way\r\nLexington, MA 02173 ', '3428 Christie Way\r\nLexington, MA 02173 ', 'd'),
+('2012-00004', 'student5', 'student5', 'Martinez', 'Maureen', 'Ellan', 'Junior', 'BSCS SPR123', '6269693549', 'MaureenEMartinez@armyspy.com', '3012 Walkers Ridge Way\r\nAzusa, CA 91702 ', '3012 Walkers Ridge Way\r\nAzusa, CA 91702 ', 'e'),
+('2012-00005', 'student6', 'student6', 'McClinton', 'Kathryn', 'James', 'Sophomore', 'BSCS SPR123', '4015747958', 'KathrynJMcClinton@armyspy.com', '4109 Winding Way\r\nProvidence, RI 02905 ', '4109 Winding Way\r\nProvidence, RI 02905 ', 'f'),
 ('2012-0006', 'student7', 'student7', 'Buckley', 'Joseph', 'Lee', 'Sophomore', 'BSCS SPR123', '2075644915', 'JosephLBuckley@jourrapide.com ', '3816 Bloomfield Way\r\nDover Foxcroft, ME 04426', '3816 Bloomfield Way\r\nDover Foxcroft, ME 04426', 'g'),
-('2012-0007', 'student8', 'student8', 'Burgos', 'Jessica', 'Mael', 'Sophomore', 'BSCS SPR123', '3343965086', 'JessicaMBurgos@jourrapide.com', '4735 Fleming Street\r\nMontgomery, AL 36109 ', '4735 Fleming Street\r\nMontgomery, AL 36109 ', 'h'),
-('2012-0008', 'student9', 'student9', 'Sanchez', 'Cora', 'Liz', 'Freshman', 'BSCS SPR123', '9098939191', 'CoraLSanchez@teleworm.us ', '1800 Grant Street\r\nSherman, TX 75090 ', '1800 Grant Street\r\nSherman, TX 75090 ', 'i'),
-('2012-0009', 'student10', 'student10', 'Small', 'Earl', 'Neo', 'Junior', 'BSCS SPR123', '7168835356', 'EarlNSmall@dayrep.com ', '1827 Jarvis Street\r\nBuffalo, NY 14222 ', '1827 Jarvis Street\r\nBuffalo, NY 14222 ', 'j');
+('2012-00007', 'student8', 'student8', 'Burgos', 'Jessica', 'Mael', 'Sophomore', 'BSCS SPR123', '3343965086', 'JessicaMBurgos@jourrapide.com', '4735 Fleming Street\r\nMontgomery, AL 36109 ', '4735 Fleming Street\r\nMontgomery, AL 36109 ', 'h'),
+('2012-00008', 'student9', 'student9', 'Sanchez', 'Cora', 'Liz', 'Freshman', 'BSCS SPR123', '9098939191', 'CoraLSanchez@teleworm.us ', '1800 Grant Street\r\nSherman, TX 75090 ', '1800 Grant Street\r\nSherman, TX 75090 ', 'i'),
+('2012-00009', 'student10', 'student10', 'Small', 'Earl', 'Neo', 'Junior', 'BSCS SPR123', '7168835356', 'EarlNSmall@dayrep.com ', '1827 Jarvis Street\r\nBuffalo, NY 14222 ', '1827 Jarvis Street\r\nBuffalo, NY 14222 ', 'j');
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `student_adviser` (
 --
 
 INSERT INTO `student_adviser` (`student_number`, `employee_number`, `isGraduated`, `start_date`, `end_date`) VALUES
-('2012-0000', '1234-0000001', 0, NULL, NULL),
+('2012-0000', '1234-0000001', 1, NULL, NULL),
 ('2012-0001', '1234-0000002', 0, NULL, NULL),
 ('2012-0002', '1234-0000001', 0, NULL, NULL),
 ('2012-0003', '1234-0000002', 0, NULL, NULL),

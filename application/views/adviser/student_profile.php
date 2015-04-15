@@ -48,6 +48,10 @@
 						<td>Home Address: </td>
 						<td><?php echo $student['home_address'] ?></td>
 					</tr>
+					<tr>
+						<td>Member since: </td>
+						<td>2010</td>
+					</tr>
 				</table>
 			</div>
 	</body>

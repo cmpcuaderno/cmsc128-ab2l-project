@@ -1,19 +1,28 @@
+@font-face{
+	font-family: 'MohaveBold';
+	src: url('fonts/Mohave-Bold.otf');
+}
+@font-face{
+	font-family: 'GandhiSans';
+	src: url('fonts/GandhiSans-Regular.otf');
+}
+
 body{
-	background-color: #666666;
+	background-color: white;
 }
 
 .header{
 	padding-top: 2.5em;
 	padding-bottom: 0.25em;
-	background-color: #141219;
+	background-color: #218c8d;
 }
 
 .heading2{
 	color: white;
-	
 	font-size: 30px;
 }
 .heading{
+	font-family: 'MohaveBold';
 	color: white;
 	padding-left: 2em;
 	padding-left: 7em;
@@ -35,24 +44,28 @@ body{
 	border-radius: 20px;
 	margin-left:auto;
 	margin-right:auto;
-	background-color: #bdb69c;
+	background-color: #f9e559;
 }
 
 .button-warning{
-	background: #727B84; /* this is a light blue */
+	font-family: 'GandhiSans';
+	color:white;
+	background: #ef7126; /* this is a light blue */
 }
 .button-warning:hover{
 	background: white; /* this is a light blue */
 }
 .button-logout{
-	background: #666666; /* this is a light blue */
+	background: #6ccecb; /* this is a light blue */
 }
 
 .fieldsetclass{
+	font-family: 'GandhiSans';
 	margin-left: -45px;
 }
 
 .studentprofile{
+	font-family: 'GandhiSans';
 	width: 80%;
 	padding: 10px;
 	margin-left: auto;
@@ -60,11 +73,13 @@ body{
 }
 
 .admintable{
+	font-family: 'GandhiSans';
 	margin-top: 2em;
 	margin-left: 20em;
 }
 
 .adminnav{
+	font-family: 'MohaveBold';
 	float: left;
 }
 
