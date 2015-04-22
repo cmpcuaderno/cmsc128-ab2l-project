@@ -30,26 +30,25 @@
 					<thead>
 						<tr>
 							<th class="highlight">Username</th>
-							<th class="highlight">Time in</th>
+							<th class="highlight">Date and Time</th>
 							<th class="highlight">Activity</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="pure-table-odd">
-							<td class="highlight">aidz</td>
-							<td class="highlight">09:44:23 AM</td>
-							<td class="highlight">Logged out.</td>
-						</tr>
-						<tr>
-							<td class="highlight">aidz</td>
-							<td class="highlight">07:12:03 AM</td>
-							<td class="highlight">Changed adviser of Juan dela Cruz</td>
-						</tr>
-						<tr class="pure-table-odd">
-							<td class="highlight">aidz</td>
-							<td class="highlight">07:02:18 AM</td>
-							<td class="highlight">Logged in.</td>
-						</tr>
+					
+					<?php
+					if (isset($table['logs'])){
+						foreach ($table['logs'] as $log){
+							echo '<tr class="pure-table-odd">';
+							echo '<td class="highlight">' . $log->username . '</td>';
+							echo '<td class="highlight">' . $log->date_time . '</td>';
+							echo '<td class="highlight">' . $log->action . '</td>';
+							echo '</tr>';
+						}
+					} else {
+						echo "logs not found.";
+					}
+                                        ?>
 					</tbody>
 				</table>
 			</center>
@@ -115,16 +114,21 @@
 		<div class="view container ">
 			<center>
 				<table class="pure-table">
-				<tr>
-					<td>
-						<a href="<?php echo site_url('student') ?>" class="pure-menu-link navLink" id="logs">Student Profiles</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a href="<?php echo site_url('adviser') ?>" class="pure-menu-link navLink" id="add">Adviser Profiles</a>
-					</td>
-				</tr>
+					<tr>
+						<td>
+							<a href="<?php echo site_url('student') ?>" class="pure-menu-link navLink" id="logs">Student Profiles</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="<?php echo site_url('adviser') ?>" class="pure-menu-link navLink" id="add">Adviser Profiles</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="<?php echo site_url('admin/noOfGraduates') ?>" class="pure-menu-link navLink" id="add">Number of Graduates</a>
+						</td>
+					</tr>
 				</table>
             </center>
 		</div>

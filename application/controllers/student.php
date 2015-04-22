@@ -2,13 +2,6 @@
 
 	class Student extends CI_Controller {
 
-		/**
-		 * Temporarily used to retrieve student data
-		 * Will be removed once student log in is implemented
-		 */
-		public $username = 'student1';
-		public $password = 'student1';
-
 		function __construct(){
 			parent::__construct();
 			$this->load->model('student_model','',TRUE);
@@ -16,25 +9,28 @@
 		}
 
 		public function index(){
-			$this->db->select('last_name, first_name, middle_name, student_number, classification, curriculum, contact_number, email_address, college_address, home_address');
-			$this->db->from('student');
-			$this->db->where('username', "student1");
-			$this->db->where('password', "student1");
-			$query = $this->db->get();
-			$data['student'] = $query->result();
-
+			$this->check_session();
+			
+			$session_data = $this->session->userdata('logged_in');
+			$data['username'] = $session_data['username'];
+                            
+			$this->load->helper('url');
 			$this->load->view('components/header.php');
 			$this->load->view('student/student_profile', $data);
 			$this->load->view('components/footer.php');
 		}
 
 		public function grades(){
+			$this->check_session();
+
 			$this->load->view('components/header.php');
 			$this->load->view('student/student_grades');
 			$this->load->view('components/footer.php');
 		}
 
 		function update(){
+			$this->check_session();
+			
 			$this->load->helper('form');
 			$this->db->select('username, password,last_name, first_name, middle_name, student_number, classification, curriculum, contact_number, email_address, college_address, home_address');
 			$this->db->from('student');
@@ -48,6 +44,8 @@
 		}
 
 		function update_student() {
+			$this->check_session();
+			
 			$username= $this->input->post('username');
 			$password= $this->input->post('password');
 			$data = array(
@@ -69,19 +67,31 @@
 		}
 
 		function search(){
-	        $this->load->helper(array('form'));
+			$this->check_session();
+
+			$this->load->helper(array('form'));
 			$this->load->view('components/header.php');
-	        $this->load->view('student/search');
+			$this->load->view('student/search');
 			$this->load->view('components/footer.php');
 		}
 
 		function search_keyword(){
+			$this->check_session();
+			
 			$adviser = $this->input->post('keyword');
 
 			$data['query']= $this->student_model->search_database($adviser);
 			$this->load->view('components/header.php');
 			$this->load->view('student/search_result',$data);
-			$this->load->view('components/footer.php');  
-    	}
+			$this->load->view('components/footer.php');
+		}
+		
+		public function check_session(){
+		if(!$this->session->userdata('logged_in')){
+			//If no session, redirect to login page
+			$this->load->helper('url');
+			redirect('login', 'refresh');
+		}
+	}
 	}
 ?>

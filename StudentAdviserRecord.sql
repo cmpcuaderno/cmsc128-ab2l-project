@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 --
 
 INSERT INTO `administrator` (`username`, `password`, `employee_number`) VALUES
-('admin', 'admin', '1234-1234567');
+('admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '1234-1234567');
 
 -- --------------------------------------------------------
 

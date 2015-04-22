@@ -1,6 +1,5 @@
 <?php
     foreach ($hashmap as $key){
-        echo ($key->emp_no . ' ' . $key->num_rows);
-        echo "\n";
+        echo ($key->emp_name . ' ' . $key->num_rows);
     }
 ?>
