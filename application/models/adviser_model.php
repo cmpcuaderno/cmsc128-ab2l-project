@@ -55,7 +55,18 @@ Class Adviser_model extends CI_Model
    * @return array - all graduate students under an adviser
    */
   public function get_grad_advisees($employee_number){
-    $query = $this->db->query("Select s.student_number, s.last_name, s.first_name, s.classification from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND s.classification = 'Graduate'");
+      $query = $this->db->query("Select * from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND sa.isGraduated = 1");
+
+      return $query->result_array();
+  }
+
+  /**
+   * Query to retrieve all advisees of an adviser
+   * @param  string $employee_number - employee number of the adviser
+   * @return array - all students under an adviser
+   */
+  public function get_advisees($employee_number) {
+    $query = $this->db->query("Select * from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "'");
 
       return $query->result_array();
   }

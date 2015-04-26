@@ -23,19 +23,29 @@
         }
 
         public function noOfGraduates(){
-		$this->db->select('employee_number');
-		$this->db->from('adviser');
-		$query = $this->db->get();
+    		$this->db->select('employee_number');
+    		$this->db->from('adviser');
+    		$query = $this->db->get();
 
-		foreach ($query->result() as $data){
-                    $this->db->select('student_number');
-                    $this->db->from('student_adviser');
-                    $this->db->where('isGraduated = 1 AND employee_number = "' . $data->employee_number . '"');
+    		foreach ($query->result() as $data){
+                $this->db->select('student_number');
+                $this->db->from('student_adviser');
+                $this->db->where('isGraduated = 1 AND employee_number = "' . $data->employee_number . '"');
 
-                    $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => $this->db->get()->num_rows());
+                $adviser['hashmap'][] = (object) array('emp_no' => $data->employee_number, 'num_rows' => $this->db->get()->num_rows());
 
+            }
+
+            return $adviser;
+        }
         public function delAdviser($enum){
 	   		$this->db->delete('student_adviser', array('employee_number', $enum));
 		}
+
+        public function get_grad_advisees($employee_number){
+            $query = $this->db->query("Select * from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND sa.isGraduated = 1");
+
+            return $query->result_array();
+        }
 
     }

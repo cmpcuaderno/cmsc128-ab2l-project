@@ -64,4 +64,4 @@
   			$("."+div).show(300);
   		});
   	});
-  </script>
+  </script>;

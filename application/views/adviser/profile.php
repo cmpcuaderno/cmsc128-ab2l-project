@@ -15,6 +15,23 @@
 <div class="table-responsive logs container studentprofile">
 	<div class="body-panel">
 		<center>
+
+			<img src="<?php echo base_url("/". $adviser['picture'] ) ?>"/>
+			<br>
+			<!-- photo and upload button-->
+			<?php
+				if(isset($error)) {
+					foreach($error as $e) {
+					echo $e;
+					}
+				}
+				echo form_open_multipart('adviser/do_upload');
+				echo "<input type='file' name='userfile' size='20'/>";
+				echo "<input type='submit' name='submit' value='upload'/>";
+				echo "</form>";
+			?>
+			<br>
+
 			<table border="true" class="mq-table pure-table-bordered pure-table">
 				<tr>
 					<td>Name: </td>

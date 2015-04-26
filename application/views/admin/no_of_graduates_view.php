@@ -1,6 +1,9 @@
 <?php
-    foreach ($hashmap as $key){
-        echo ($key->emp_no . ' ' . $key->num_rows);
-        echo "\n";
+    foreach ($hashmap as $data){
+    	foreach($data as $key => $value) {
+    		echo $value->emp_no . " ";
+    		echo "<a href=\"\">".$value->num_rows."</a>";
+    		echo "<br>";
+    	}
     }
 ?>

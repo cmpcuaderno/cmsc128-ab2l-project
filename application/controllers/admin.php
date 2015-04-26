@@ -48,20 +48,20 @@ class Admin extends CI_Controller{
 
     public function noOfGraduates(){
 
-                $result = $this->admin_model->noOfGraduates();
+                $result['hashmap'] = $this->admin_model->noOfGraduates();
 
                 $this->load->helper("url");
                 $this->load->view('components/header.php');
                 $this->load->view('admin/no_of_graduates_view.php', $result);
                 $this->load->view('components/footer.php');
         }
-        
+
     public function delAdviser(){
 		$this->load->model('admin_model');
 		$enum = $this->input->post('enum');
 		$result = $this->admin_model->delAdviser($enum);
 		$this->load->helper("url");
-              $this->load->view('admin/adviser_delete_view.php', $enum); 
+              $this->load->view('admin/adviser_delete_view.php', $enum);
 		$this->load->view('components/footer.php');
 
 	}
