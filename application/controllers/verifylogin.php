@@ -31,8 +31,15 @@ class VerifyLogin extends CI_Controller {
    else
    {
      //Go to private area
+        $table = $this->session->userdata('table');
 	 $this->load->library('session');
-     redirect('home', 'refresh');
+        if (strcmp($table, 'administrator') == 0){
+            redirect('admin', 'refresh');
+        } else if (strcmp($table, 'adviser') == 0){
+            redirect('adviser', 'refresh');
+        } else if (strcmp($table, 'student') == 0){
+            redirect('student', 'refresh');
+        }
    }
 
  }
@@ -41,9 +48,11 @@ class VerifyLogin extends CI_Controller {
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('username');
+   
+   $table = $this->input->post('table');
 
    //query the database
-   $result = $this->user->login($username, $password);
+   $result = $this->user->login($username, sha1($password), $table);
 
    $this->load->library('session');
    
@@ -56,6 +65,7 @@ class VerifyLogin extends CI_Controller {
          'username' => $row->username
        );
        $this->session->set_userdata('logged_in', $sess_array);
+       $this->session->set_userdata('table', $table);
      }
 	$this->load->library('session');
      return TRUE;

@@ -41,6 +41,15 @@
 						<label for="password">Password</label>
 						<input class="pure-input-rounded" type="password" name="password" id="uPassword" maxlength="20" pattern="^[\S]*$" placeholder="Password" required>
 					</div>
+					
+					<div class="pure-control-group">
+                                            <label>Sign in as: </label>
+                                            <select name="table">
+                                                <option selected value="administrator">Admin</option>
+                                                <option value="adviser">Adviser</option>
+                                                <option value="student">Student</option>
+                                            </select>
+					</div>
 
 					<div class="pure-controls">
 						<button type="submit" class="pure-button button-warning pure-input-rounded">LOG IN</button>

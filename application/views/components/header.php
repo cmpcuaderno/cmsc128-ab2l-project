@@ -36,7 +36,7 @@
 				<h1 class="heading">Adviser-Student Records Management System</h1>
 			</div>
 			<div class="pure-u-lg-1-8">
-				<a href="home/logout" class="pure-button button-logout">Log out</a>
+				<a href="logout" class="pure-button button-logout">Log out</a>
 			</div>
 		</div>
 	</div>
