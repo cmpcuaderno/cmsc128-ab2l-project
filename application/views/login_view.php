@@ -17,45 +17,55 @@
 <body>
 	<div class="header">
 		<div class="pure-g">
-			<div class="pure-u-lg-7-8">
-				<h1 class="heading">Adviser-Student Records Management System</h1>
-			</div>
+			<!--<div class="pure-u-lg-7-8">
+				<!<h1 class="heading">Adviser-Student Records Management System</h1>
+			</div>-->
 		</div>
 	</div>
-	<div class="logo">
-		<img src="<?php echo base_url("dist/images/logo.png"); ?>" class="pure-img">
+	<div class="logo_login">
+		<img src="<?php echo base_url("dist/images/logo_login1.png"); ?>" class="pure-img">
 	</div>
 	<div class="container">
 		<div class="userinput">
 			<?php echo validation_errors(); ?>
 			<?php echo form_open('verifylogin'); ?>
-			<form class="pure-form pure-form-aligned fieldsetclass" name="login" action="home.php" method="post">
-				<fieldset>
+			<form class="pure-form pure-form-aligned pure-img fieldsetclass" name="login" action="home.php" method="post">
+				<!--<fieldset>-->
+					<center>
 
 					<div class="pure-control-group">
-						<label for="name">Username</label>
+						<label for="name"></label>
 						<input class="pure-input-rounded" type="text" name="username" id="uLogin" maxlength="20" pattern="^[A-Za-z0-9]*$" placeholder="Username" required>
 					</div>
 
 					<div class="pure-control-group">
-						<label for="password">Password</label>
+						<label for="password"></label>
 						<input class="pure-input-rounded" type="password" name="password" id="uPassword" maxlength="20" pattern="^[\S]*$" placeholder="Password" required>
+					</div></br>
+
+					<div class="pure-control-group">
+						<label>Sign in as: </label>
+						<select name="table">
+							<option selected value="administrator">Admin</option>
+							<option value="adviser">Adviser</option>
+							<option value="student">Student</option>
+						</select>
 					</div>
 					
-					<div class="pure-control-group">
-                                            <label>Sign in as: </label>
-                                            <select name="table">
-                                                <option selected value="administrator">Admin</option>
-                                                <option value="adviser">Adviser</option>
-                                                <option value="student">Student</option>
-                                            </select>
-					</div>
-
 					<div class="pure-controls">
 						<button type="submit" class="pure-button button-warning pure-input-rounded">LOG IN</button>
 					</div>
-				</fieldset>
+
+					</center>
+				<!--</fieldset>-->
 			</form>
 		</div>
-		<p><img src="<?php echo base_url("dist/images/logobg.png"); ?>" id="img2">
+		
 	</div>
+	<div class="mid">
+	</div>
+	<div class="footer">
+	</div><div class="footer2">
+	</div>
+
+	

@@ -1,7 +1,8 @@
-    <div class="pure-menu adminnav" id="cssmenu">
-    <ul class="pure-menu-list custom-restricted-width">
-      
-        <li class="pure-menu-item pure-menu-selected">
+<div class="pure-menu adminnav" id="cssmenu">
+	<ul class="pure-menu-list custom-restricted-width">
+		
+
+		<li class="pure-menu-item pure-menu-selected">
             <a href="<?php echo site_url('student/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
         </li>
       
@@ -21,12 +22,12 @@
             <a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
         </li>
 
-    </ul>
+	</ul>
 </div>
-
 
 <div class="body-panel">
 <center>
+Change password successful.
 <table class="pure-table pure-u">
     
 	<tr><td>

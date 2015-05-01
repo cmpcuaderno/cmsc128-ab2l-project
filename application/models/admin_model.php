@@ -5,60 +5,66 @@
             parent::__construct();
         }
 
-        public function add_adviser(){
-            $username = $this->input->post('username');
-
-            $data = array(
-                'employee_number' => $this->input->post('employee_number'),
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'first_name' => $this->input->post('first_name'),
-                'middle_name' => $this->input->post('middle_name'),
-                'last_name' => $this->input->post('last_name'),
-                'specialization' => $this->input->post('specialization'),
-                'level' => $this->input->post('level')
-            );
-
-            $this->db->insert('adviser',$data);
-
-            return $username;
+        public function add_adviser($data){
+            return $this->db->insert('adviser', $data);
         }
 
         public function noOfGraduates(){
-            $this->db->select('employee_number');
-            $this->db->from('adviser');
-            $query = $this->db->get();
+		$this->db->select('employee_number');
+		$this->db->from('adviser');
+		$query = $this->db->get();
 
-            foreach ($query->result() as $data){
-            $this->db->select('student_number');
-            $this->db->from('student_adviser');
-            $this->db->where('isGraduated = 1 AND employee_number = "' . $data->employee_number . '"');
+		foreach ($query->result() as $data){
+                    $this->db->select('student_number');
+                    $this->db->from('student_adviser');
+                    $this->db->where('isGraduated = 1 AND employee_number = "' . $data->employee_number . '"');
 
-             $rows = $this->db->get()->num_rows();
+                    $rows = $this->db->get()->num_rows();
+                    
+                    //get the employee name
+                    $q = $this->db->query('SELECT * FROM adviser WHERE employee_number = "' . $data->employee_number . '"');
+                    
+                    if ($q->num_rows() > 0){
+                        $row = $q->row();
+                        $name = $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name;
+                        
+                        $adviser['hashmap'][] = (object) array('emp_name' => $name, 'num_rows' => $rows);
+                    }
 
-             //get the employee name
-             $q = $this->db->query('SELECT * FROM adviser WHERE employee_number = "' . $data->employee_number . '"');
-
-                if ($q->num_rows() > 0){
-                    $row = $q->row();
-                    $name = $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name;
-
-                    $adviser['hashmap'][] = (object) array('emp_name' => $name, 'num_rows' => $rows);
                 }
-
+                
+                return $adviser;
+        
+        }
+        
+        public function view_advisers(){
+		$query = $this->db->query('SELECT employee_number, username, last_name, first_name, middle_name, specialization, level FROM adviser');
+		
+		foreach ($query->result() as $data){
+                $rv['advisers'][] = (object) array('employee_number' => $data->employee_number, 'username' => $data->username, 'last_name' => $data->last_name, 'first_name' => $data->first_name, 'middle_name' => $data->middle_name, 'specialization' => $data->specialization, 'level' => $data->level);
             }
-
-            return $adviser;
+            
+            return $rv;
+		
+		return $query->result();
         }
+        
+        public function delAdviser($employee_number){
+			$data = array(
+			'last_name' => $this->input->post('last_name'),
+			'first_name' => $this->input->post('first_name'),
+			'middle_name' =>  $this->input->post('middle_name'),
+			'level' => $this->input->post('level'),
+			'specialization' =>  $this->input->post('specialization')
+			);
 
-        public function delAdviser($enum){
-		$this->db->delete('adviser');
-		$this->db->where('employee_number', $enum);
+			$this->db->where('employee_number', $employee_number);
+			$this->db->delete('adviser', $data);
         }
-
+		
         public function createLog($username, $action){
             $date_time = $this->db->query("SELECT NOW();")->row_array()['NOW()'];
-
+        
              $data = array(
                 'username' => $username,
                 'date_time' => $date_time,
@@ -69,21 +75,53 @@
 
             return true;
         }
-
+        
         public function viewLogs(){
-            $query = $this->db->query('SELECT * FROM admin_logs');
-
+            $query = $this->db->query('SELECT * FROM admin_logs ORDER BY date_time DESC');
+            
             foreach ($query->result() as $data){
                 $rv['logs'][] = (object) array('username' => $data->username, 'date_time' => $data->date_time, 'action' => $data->action);
             }
-
+            
             return $rv;
         }
+        
+        //student section
+        public function get_all_students(){
+            $query = $this->db->get('student');
 
-        public function get_grad_advisees($employee_number){
-            $query = $this->db->query("Select * from student s left join student_adviser sa on sa.student_number = s.student_number where sa.employee_number = '" . $employee_number . "' AND sa.isGraduated = 1");
-
-            return $query->result_array();
+            return $query->result();
         }
+        
+        public function insert_student_to_db($data){
+            return $this->db->insert('student', $data);
+        }
+        
+        public function search_student($keyword){
+            $this->db->like('student_number', $keyword);
+            $this->db->or_like('username', $keyword);
+            $query = $this->db->get('student');
+            
+            return $query->result();
+        }
+        
+        public function getById($studnum){
+            $query = $this->db->get_where('student',array('student_number'=>$studnum));
+        
+            return $query->row_array();
+        }
+        
+        public function update_info($data, $studnum){
+            $this->db->where('student.student_number', $studnum);
+            
+            return $this->db->update('student', $data);
+        }
+
+        public function delete_a_student($studnum){
+            $this->db->where('student.student_number',$studnum);
+	
+            return $this->db->delete('student');
+        }
+        
 
     }

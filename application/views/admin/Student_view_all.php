@@ -1,22 +1,76 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<div class="pure-menu adminnav" id="cssmenu">
+	<ul class="pure-menu-list custom-restricted-width">
 
-            <title>CI CRUD</title>
+		<li class="pure-menu-item pure-menu-selected">
+			<a href="<?php echo site_url('admin') ?>" class="pure-menu-link navLink" id="logs">Logs</a>
+		</li>
+		
+		<li class='active has-sub'><a href='#'><span>Add</span></a>
+			<ul>
+				<li class='last'><a href='<?php echo site_url('admin/do_register') ?>'><span>Adviser</span></a>
+				</li>
+				<li class='last'><a href='<?php echo site_url('admin/add_form') ?>'><span>Student</span></a>
+				</li>
+			</ul>
+		</li>
+		
+		<li class='active has-sub'><a href='#'><span>Update</span></a>
+			<ul>
+				<li class='last'><a href='#'><span>Adviser</span></a>
+				</li>
+				<li class='last'><a href='#'><span>Student</span></a>
+				</li>
+			</ul>
+		</li>
 
-    </head>
+		<li class='active has-sub'><a href='#'><span>View</span></a>
+			<ul>
+				<li class='last'><a href='<?php echo site_url('admin/do_register') ?>'><span>Adviser</span></a>
+				</li>
+				<li class='last'><a href='<?php echo site_url('admin/view_students') ?>'><span>Student</span></a>
+				</li>
+				<li class='last'><a href='<?php echo site_url('admin/noOfGraduates') ?>'><span>Number of Graduates</span></a>
+				</li>
+			</ul>
+		</li>
 
-<body>
+		<li class='active has-sub'><a href='#'><span>Delete</span></a>
+			<ul>
+				<li class='last'><a href='<?php echo site_url('admin/delAdviser') ?>'><span>Adviser</span></a>
+				</li>
+				<li class='last'><a href='<?php echo site_url('admin/delete') ?>'><span>Student</span></a>
+				</li>
+			</ul>
+		</li>
 
-    <h2> Simple CI CRUD Application </h2>
-
-        <table width="600" border="1" cellpadding="5">
+	</ul>
+</div>
+     <head>
+        <script type="text/javascript">
+            function show_confirm(act, gotoid){
+                if(act == "edit")
+                    var r = confirm("Do you really want to edit?");
+                    
+                else
+                    var r = confirm("Do you really want to delete?");
+                    
+                if(r == true){
+                    window.location = "<?php echo base_url();?>index.php/admin/"+act+"/"+gotoid;
+                }
+            }
+        </script>
+     </head>
+     
+     <form method="post" action="search_student_keyword">
+	<input type="text" name="search_keyword" size="20" />
+	<input type="submit" name="submit" value="Search" />
+     </form>
+    
+    <table width="600" border="1" cellpadding="5">
     
         <tr>
             <th scope="col">Student Number</th>
             <th scope="col">User Name</th>
-            <th scope="col">Password</th>
             <th scope="col">Last Name</th>
             <th scope="col">First Name</th>
             <th scope="col">Middle Name</th>
@@ -33,10 +87,8 @@
         <?php foreach ($user_list as $u_key){ ?>
 
         <tr>
-
             <td><?php echo $u_key->student_number; ?></td>
             <td><?php echo $u_key->username; ?></td>
-            <td><?php echo $u_key->password; ?></td>
             <td><?php echo $u_key->last_name; ?></td>
             <td><?php echo $u_key->first_name; ?></td>
             <td><?php echo $u_key->middle_name; ?></td>
@@ -48,20 +100,11 @@
             <td><?php echo $u_key->home_address; ?></td>
             <td><?php echo $u_key->relative; ?></td>
             
-            <td width="40" align="left" ><a href="#" onClick="show_confirm('edit',<?php echo $u_key->student_number;?>)">Edit</a></td>
-            <td width="40" align="left" ><a href="#" onClick="show_confirm('delete',<?php echo $u_key->student_number;?>)">Delete </a></td>
-
+            <td witdth="40" align="left"><a href="#" onClick="show_confirm('edit', '<?php echo $u_key->student_number; ?>')">Edit</a></td>
+            <td witdth="40" align="left"><a href="#" onClick="show_confirm('delete', '<?php echo $u_key->student_number; ?>')">Delete</a></td>
+            
         </tr>
 
         <?php }?>
 
-        <tr>
-            <td colspan="7" align="right"> <a href="add_form" class="pure-menu-link navLink" id="add_form">Add Student</a></td>
-        </tr>
-
     </table>
-
-</body>
-
-</html>
-

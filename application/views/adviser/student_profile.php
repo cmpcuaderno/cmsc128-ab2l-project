@@ -1,22 +1,29 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Adviser-Student Records Management System</title>
+<div class="pure-menu adminnav">
+	<ul class="pure-menu-list custom-restricted-width">
 
-	</head>
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
+		</li>
 
-	<body>
-			<div class="top-panel">
-				<h1>Adviser-Student Records Management System</h1>
-				<button type="button">Log out</button>
-			</div>
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/edit') ?>" class="pure-menu-link navLink" id="update">Update Specialization</a>
+		</li>
 
-			<br><br><br>
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+		</li>
 
-			<div class="body-panel">
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/advisees') ?>" class="pure-menu-link navLink" id="logs">View Advisees</a>
+		</li>
+	</ul>
+</div>
 
-				<table border="true">
-					 <tr>
+<div class="table-responsive logs container studentprofile">
+	<div class="body-panel">
+		<center>
+			<table border="true" class="mq-table pure-table-bordered pure-table">
+				<tr>
 						<td>Name: </td>
 						<td><?php echo $student['last_name'].','. $student['first_name'].' '.$student['middle_name']?></td>
 					</tr>
@@ -52,7 +59,7 @@
 						<td>Member since: </td>
 						<td>2010</td>
 					</tr>
-				</table>
-			</div>
-	</body>
-</html>
+			</table>
+		</center>
+	</div>
+</div>

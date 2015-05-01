@@ -7,7 +7,7 @@
 		
 		<li class='active has-sub'><a href='#'><span>Add</span></a>
 			<ul>
-				<li class='last'><a href='<?php echo site_url('admin/do_register') ?>'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/register') ?>'><span>Adviser</span></a>
 				</li>
 				<li class='last'><a href='<?php echo site_url('admin/add_form') ?>'><span>Student</span></a>
 				</li>
@@ -25,7 +25,7 @@
 
 		<li class='active has-sub'><a href='#'><span>View</span></a>
 			<ul>
-				<li class='last'><a href='#'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/view_advisers') ?>'><span>Adviser</span></a>
 				</li>
 				<li class='last'><a href='<?php echo site_url('admin/view_students') ?>'><span>Student</span></a>
 				</li>
@@ -45,23 +45,39 @@
 
 	</ul>
 </div>
+
 <center>
-	<div class="body-panel  pure-u-2-5 tableClass">
+	<div class="body-panel pure-u-2-5 tableClass">
 		<table id="table" class="display" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th class="highlight">Adviser</th>
-					<th class="highlight">Number of Graduates</th>
+					<th scope="col">Employee Number</th>
+					<th scope="col">User Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Middle Name</th>
+					<th scope="col">Specialization</th>
+					<th scope="col">Level</th>
 				</tr>
 			</thead>
 			<tbody>
+			
 			<?php
-				foreach ($hashmap as $key){
+			if (isset($list['advisers'])){
+				foreach ($list['advisers'] as $log){
 					echo '<tr>';
-					echo '<td>' . $key->emp_name . '</td>';
-					echo '<td><center>' . $key->num_rows . '</center></td>';
-					echo '</tr>'; 
+					echo '<td>' . $log->employee_number . '</td>';
+					echo '<td>' . $log->username . '</td>';
+					echo '<td>' . $log->last_name . '</td>';
+					echo '<td>' . $log->first_name . '</td>';
+					echo '<td>' . $log->middle_name . '</td>';
+					echo '<td>' . $log->specialization . '</td>';
+					echo '<td>' . $log->level . '</td>';
+					echo '</tr>';
 				}
+			} else {
+				echo "No advisers registered.";
+			}
 			?>
 			</tbody>
 		</table>

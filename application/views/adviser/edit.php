@@ -6,9 +6,16 @@
 		</li>
 
 		<li class="pure-menu-item pure-menu-selected">
-			<a href="<?php echo site_url('adviser/edit') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
+			<a href="<?php echo site_url('adviser/edit') ?>" class="pure-menu-link navLink" id="update">Update Specialization</a>
 		</li>
 
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+		</li>
+
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/advisees') ?>" class="pure-menu-link navLink" id="logs">View Advisees</a>
+		</li>
 	</ul>
 </div>
 
@@ -19,30 +26,9 @@
 			<form method="POST" action="#" class="mq-table">
 					<table border="true" class="pure-table">
 						<tr>
-							<td>Last name: </td>
-							<td><input class="pure-input" type="text" name="last_name" value="<?php echo $adviser['last_name'] ?>"></td>
-						</tr>
-
-						<tr>
-							<td>First name: </td>
-							<td><input class="pure-input" type="text" name="first_name" value="<?php echo $adviser['first_name'] ?>"></td>
-						</tr>
-
-						<tr>
-							<td>Middle name: </td>
-							<td><input class="pure-input" type="text" name="middle_name" value="<?php echo $adviser['middle_name'] ?>"></td>
-						</tr>
-
-						<tr>
-							<td>Academic Rank: </td>
-							<td><input class="pure-input" type="text" name="level" value="<?php echo $adviser['level'] ?>"></td>
-						</tr>
-
-						<tr>
 							<td>Specialization: </td>
-							<td><input class="pure-input" type="text" name="specialization" value="<?php echo $adviser['specialization'] ?>"></td>
+							<td><textarea name="specialization" rows="5" cols="25"><?php echo $adviser['specialization'] ?></textarea></td>
 						</tr>
-
 					</table>
 					<br><br>
 				<button class="pure-button" type="submit">Update</button>

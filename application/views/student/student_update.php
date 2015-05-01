@@ -1,21 +1,25 @@
-<div class="pure-menu adminnav">
+<div class="pure-menu adminnav" id="cssmenu">
 	<ul class="pure-menu-list custom-restricted-width">
 
-		<li class="pure-menu-item">
-			<a href="<?php echo site_url('student/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
-		</li>
+        <li class="pure-menu-item pure-menu-selected">
+            <a href="<?php echo site_url('student/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
+        </li>
+      
+        <li class="pure-menu-item pure-menu">
+            <a href="<?php echo site_url('student/grades') ?>" class="pure-menu-link navLink" id="add">View Grades</a>
+        </li>
+        
+        <li class="pure-menu-item">
+            <a href="<?php echo site_url('student/update') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
+        </li>
 
-		<li class="pure-menu-item pure-menu">
-			<a href="<?php echo site_url('student/grades') ?>" class="pure-menu-link navLink" id="add">View Grades</a>
-		</li>
+        <li class="pure-menu-item">
+            <a href="<?php echo site_url('student/change') ?>" class="pure-menu-link navLink" id="update">Change Password</a>
+        </li>
 
-		<li class="pure-menu-item pure-menu-selected">
-			<a href="<?php echo site_url('student/update') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
-		</li>
-
-		<li class="pure-menu-item">
-			<a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
-		</li>
+        <li class="pure-menu-item">
+            <a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
+        </li>
 
 	</ul>
 </div>
@@ -23,7 +27,7 @@
 	<div class="body-panel">
 		<center>
 			<div>
-				<?php echo form_open('student/update_student');
+				<?php echo form_open('student/validate_student');
 				foreach($student as $stud) : ?>
 				<form method="POST" action="#" class="mq-table">
 					<table border="true" class="pure-table">
@@ -37,7 +41,8 @@
 						</tr>
 						<tr>
 							<td>Student Number: </td>
-							<td><input class="pure-input" type="text" name="student_number" value="<?php echo $stud->student_number ?>"></td>
+							<td><input class="pure-input" type="text" name="student_number" value="<?php echo $stud->student_number ?>">
+								<br/></td>
 						</tr>
 						<tr>
 							<td>Classification: </td>
@@ -49,11 +54,13 @@
 						</tr>
 						<tr>
 							<td>Contact Number: </td>
-							<td><input class="pure-input" type="text" name="contact_number" value="<?php echo $stud->contact_number ?>"></td>
+							<td><input class="pure-input" type="text" name="contact_number" value="<?php echo $stud->contact_number ?>">
+								<?php echo form_error('contact_number');  ?></td>
 						</tr>
 						<tr>
 							<td>E-mail Address: </td>
-							<td><input class="pure-input" type="text" name="email_address" value="<?php echo $stud->email_address ?>"></td>
+							<td><input class="pure-input" type="text" name="email_address" value="<?php echo $stud->email_address ?>">
+								<?php echo form_error('email_address');  ?></td>
 						</tr>
 						<tr>
 							<td>College Address: </td>

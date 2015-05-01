@@ -28,7 +28,7 @@ Class Adviser_model extends CI_Model
    * @return array - attributes of the adviser with the specified employee number
    */
   public function get_adviser($target){
-    $query = $this->db->get_where('adviser', array('employee_number' => $target));
+    $query = $this->db->get_where('adviser', array('username' => $target));
     return $query->row_array();
   }
 

@@ -8,10 +8,19 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/pure-min.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/design.css"); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/styles.css"); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/TableCSSCode.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/grids-responsive.css"); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/pure-release-0.6.0/forms-min.css"); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("dist/jquery.dataTables.min.css"); ?>">
 	<script src="<?php echo base_url("dist/jquery-2.1.1.min.js"); ?>"></script>
+	<script src="<?php echo base_url("dist/jquery.js"); ?>"></script>
+	<script src="<?php echo base_url("dist/jquery.dataTables.min.js"); ?>"></script>
 	<script>
+		$(document).ready( function () {
+			$('#table').DataTable();
+		} );
+
 		$(document).ready(function(){
 			//change cursor to pointer
 			$('.toggle').hover(function(){
@@ -36,7 +45,7 @@
 				<h1 class="heading">Adviser-Student Records Management System</h1>
 			</div>
 			<div class="pure-u-lg-1-8">
-				<a href="logout" class="pure-button button-logout">Log out</a>
+				<a href="<?php echo base_url('logout') ?>" class="pure-button button-logout">Log out</a>
 			</div>
 		</div>
 	</div>
