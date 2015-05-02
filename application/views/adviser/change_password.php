@@ -26,25 +26,42 @@
 <div class="body-panel">
 <center>
 <table class="pure-table pure-u">
+    <div class="success">
+        <?php
+        if(!is_null($message)){
+            echo $message."<br>";
+        } ?>
+    </div>
 
-	<tr><td>
-   <?php echo form_open('adviser/validate_password'); ?>
-    Current Password
-	</td><td>
-    <input type="password" name="opword" class="pure-input-rounded" size="30" /></td></tr>
-	<tr><td>
-    <?php echo form_error('opword');  ?><br/>
-    New Password</td><td>
-    <input type="password" name="npword1" size="30" class="pure-input-rounded" placeholder="min. of six(6) characters" /></td>
-	</tr><tr><td>
-    <?php echo form_error('npword1');  ?> <br/>
-    Retype Password </td><td>
-    <input type="password" name="npword2" size="30" class="pure-input-rounded" placeholder="min. of six(6) characters" />
-	</td></tr>
-    <?php echo form_error('npword2');  ?> <br/><br/>
+    <?php echo form_open('adviser/validate_password'); ?>
+	<tr>
+        <td>
+            Current Password
+	    </td>
 
-
-	</td></tr>
+        <td>
+            <input type="password" name="opword" class="pure-input-rounded" size="30" />
+            <?php echo form_error('opword');  ?>
+        </td>
+    </tr>
+	<tr>
+        <td>
+            New Password
+        </td>
+        <td>
+            <input type="password" name="npword1" size="30" class="pure-input-rounded" placeholder="min. of six(6) characters" />
+            <?php echo form_error('npword1');  ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Retype Password
+        </td>
+        <td>
+            <input type="password" name="npword2" size="30" class="pure-input-rounded" placeholder="min. of six(6) characters" />
+            <?php echo form_error('npword2');  ?>
+	   </td>
+    </tr>
 	</table><br>
 <input type="submit" value="Submit" class="pure-button" />
   </form>
