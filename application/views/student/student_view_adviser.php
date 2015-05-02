@@ -1,14 +1,10 @@
 <div class="pure-menu adminnav" id="cssmenu">
-    <ul class="pure-menu-list custom-restricted-width">
-      
+	<ul class="pure-menu-list custom-restricted-width">
+
         <li class="pure-menu-item pure-menu-selected">
             <a href="<?php echo site_url('student/') ?>" class="pure-menu-link navLink" id="logs">Profile</a>
         </li>
-      
-        <li class="pure-menu-item pure-menu">
-            <a href="<?php echo site_url('student/grades') ?>" class="pure-menu-link navLink" id="add">View Grades</a>
-        </li>
-        
+
         <li class="pure-menu-item">
             <a href="<?php echo site_url('student/update') ?>" class="pure-menu-link navLink" id="update">Update Profile</a>
         </li>
@@ -18,19 +14,21 @@
         </li>
 
         <li class="pure-menu-item">
-            <a href="<?php echo site_url('student/search') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
+            <a href="<?php echo site_url('student/adviser') ?>" class="pure-menu-link navLink" id="update">Search Adviser</a>
+        </li>
+         <li class="pure-menu-item">
+            <a href="<?php echo site_url('student/student_adviser') ?>" class="pure-menu-link navLink" id="update">View Adviser</a>
         </li>
 
-    </ul>
+	</ul>
 </div>
-
-
 
 <div class="body-panel">
 	<center>
 		<?php
-		if($query->num_rows()>0){
+			if($query->num_rows()<=0){
 			echo "Result: ".$query->num_rows()." matched your query.<br><br>";
+			}
 			foreach($query->result() as $row ):
 		?>
 		<table border="true" class="pure-table">
@@ -48,12 +46,9 @@
 			</tr>
 		</table>
 		<br>
-		<?php
-			endforeach;
-			echo $this->pagination->create_links();
-		}
-		else echo "Result: No match found.";
-	?>
+	
+<?php endforeach; ?>
+			
 	</center>
 </div>
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?php echo base_url("dist/images/logo.png"); ?>">
 
     <title>Adviser-Student Records Management System</title>
 
@@ -20,20 +21,6 @@
 		$(document).ready( function () {
 			$('#table').DataTable();
 		} );
-
-		$(document).ready(function(){
-			//change cursor to pointer
-			$('.toggle').hover(function(){
-				$(this).css( 'cursor', 'pointer' );
-			});
-			//set hide as default
-			$($('div.initHide')).hide();
-			//toggle between hide and show
-			$("#hideFirstSem").click(function(){
-				$("#firstsem").toggle("slow");
-				$("#button").show("slow");
-			});
-		});
 	</script>
 
 </head>
