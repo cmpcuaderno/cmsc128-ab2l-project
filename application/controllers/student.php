@@ -25,6 +25,22 @@
 		}
 
 		/*
+			view student's grades
+		*/
+		public function grades(){
+			$this->check_session();
+
+			$session_data = $this->session->userdata('logged_in');
+
+			$student_number = $this->student_model->get_student_number($session_data['username'],$session_data['password']);
+			$data['grades'] = $this->student_model->fetch_student_grades($student_number);
+
+			$this->load->view('components/header.php');
+			$this->load->view('student/student_grades', $data);
+			$this->load->view('components/footer.php');
+		}
+
+		/*
 			view update student profile
 		*/
 		function update(){

@@ -41,6 +41,45 @@ Class Student_model extends CI_Model
     }
 
     /*
+        search student's grades
+    */
+    function fetch_student_grades($student_number){
+        $this->db->select('*');
+        $this->db->from('student_course');
+        $this->db->where('student_number', $student_number);
+        $this->db->order_by('year_taken', 'incr');
+        $this->db->order_by('term_taken', 'incr');
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+          return $query->result();
+        }
+        else {
+          return false;
+        }
+    }
+
+    /*
+        get student number of student
+    */
+    function get_student_number($username, $password){
+        $this->db->select('student_number');
+        $this->db->from('student');
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if($query -> num_rows() == 1) {            
+          $row = $query->row();
+          return $row->student_number;
+        }
+        else {
+          return false;
+        }
+    }
+
+    /*
         update/edit student's profile
     */
     function update_student($username,$password,$data){

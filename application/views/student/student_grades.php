@@ -27,49 +27,53 @@
 	</ul>
 </div>
 
-<div class="table-responsive logs container studentprofile">
+
 	<div class="body-panel">
 		<center>
-			<?php 	foreach($student as $stud) : ?>
-			<table border="true" class="mq-table pure-table-bordered pure-table">
+			<table border="true" class="mq-table pure-table-bordered pure-table" width="60%">
+				<thead>
+					<tr>
+						<td>
+							Year Taken
+						</td>
+						<td>
+							Term Taken
+						</td>
+						<td>
+							Course Code
+						</td>
+						<td>
+							Final Grade
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+			<?php 
+			if($grades){
+				foreach($grades as $sub) : ?>
 				<tr>
-					<td>Name: </td>
-					<td><?php echo $stud->last_name.','. $stud->first_name.' '.$stud->middle_name?></td>
+					<td>
+						<?php echo $sub->year_taken." - ".($sub->year_taken+1) ?>
+					</td>
+					<td>
+						<?php echo $sub->term_taken ?>
+					</td>
+					<td>
+						<?php echo $sub->course_code ?>
+					</td>
+					</td>
+					<td>
+						<?php echo $sub->final_grade ?>
+					</td>
 				</tr>
-				<tr>
-					<td>Student Number: </td>
-					<td><?php echo $stud->student_number?></td>
-				</tr>
-				<tr>
-					<td>Classification: </td>
-					<td><?php echo $stud->classification ?></td>
-				</tr>
-				<tr>
-					<td>Curriculum: </td>
-					<td><?php echo $stud->curriculum ?></td>
-				</tr>
-				<tr>
-					<td>Contact Number: </td>
-					<td><?php echo $stud->contact_number ?></td>
-				</tr>
-				<tr>
-					<td>E-mail Address: </td>
-					<td><?php echo $stud->email_address ?></td>
-				</tr>
-				<tr>
-					<td>College Address: </td>
-					<td><?php echo $stud->college_address ?></td>
-				</tr>
-				<tr>
-					<td>Home Address: </td>
-					<td><?php echo $stud->home_address ?></td>
-				</tr>
-				<tr>
-					<td>Member since: </td>
-					<td>2010</td>
-				</tr>
+			<?php 
+				endforeach;
+			}else echo "No grades.";
+			?>
+				</tbody>
 			</table>
-		<?php endforeach; ?>
+			<!-- end table for grades -->
 		</center>
 	</div>
+
 </div>
