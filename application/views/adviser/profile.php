@@ -10,7 +10,11 @@
 		</li>
 
 		<li class="pure-menu-item">
-			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+			<a href="<?php echo site_url('adviser/change_password') ?>" class="pure-menu-link navLink" id="logs">Change Password</a>
+		</li>
+
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
 		</li>
 
 		<li class="pure-menu-item">
@@ -38,7 +42,7 @@
 			<?php
 				echo form_open_multipart('adviser/do_upload');
 				echo "<input type='file' name='userfile' size='20'/>";
-				echo "<input type='submit' name='submit' value='upload'/>";
+				echo "<input type='submit' name='submit' class='pure-button' value='Upload'/>";
 				echo "</form>";
 			 ?>
 			 <br>

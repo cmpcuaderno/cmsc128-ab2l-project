@@ -34,7 +34,7 @@
     <div class="success">
         <?php 
         if(!is_null($message)){ 
-            echo $message."<br>";
+            echo $message."<br><br>";
         } ?>
     </div>
 
@@ -68,7 +68,8 @@
 	   </td>
     </tr>
 	</table><br>
-<input type="submit" value="Submit" class="pure-button" />
+    <br>
+    <input type="submit" value="Submit" class="pure-button" />
   </form>
   </center>
 </div>

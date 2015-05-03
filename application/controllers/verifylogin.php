@@ -63,7 +63,7 @@ class VerifyLogin extends CI_Controller {
      {
        $sess_array = array(
          'username' => $row->username,
-		     'password' => $row->password
+		 'password' => $row->password
        );
        $this->session->set_userdata('logged_in', $sess_array);
        $this->session->set_userdata('table', $table);
@@ -73,7 +73,7 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
-     $this->form_validation->set_message('check_database', 'Invalid username or password');
+     $this->form_validation->set_message('check_database', 'INVALID USERNAME OR PASSWORD');
      return false;
    }
  }

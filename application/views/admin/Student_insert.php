@@ -7,25 +7,16 @@
 		
 		<li class='active has-sub'><a href='#'><span>Add</span></a>
 			<ul>
-				<li class='last'><a href='<?php echo site_url('admin/do_register') ?>'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/register') ?>'><span>Adviser</span></a>
 				</li>
 				<li class='last'><a href='<?php echo site_url('admin/add_form') ?>'><span>Student</span></a>
-				</li>
-			</ul>
-		</li>
-		
-		<li class='active has-sub'><a href='#'><span>Update</span></a>
-			<ul>
-				<li class='last'><a href='#'><span>Adviser</span></a>
-				</li>
-				<li class='last'><a href='#'><span>Student</span></a>
 				</li>
 			</ul>
 		</li>
 
 		<li class='active has-sub'><a href='#'><span>View</span></a>
 			<ul>
-				<li class='last'><a href='<?php echo site_url('admin/do_register') ?>'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/view_advisers') ?>'><span>Adviser</span></a>
 				</li>
 				<li class='last'><a href='<?php echo site_url('admin/view_students') ?>'><span>Student</span></a>
 				</li>
@@ -33,16 +24,20 @@
 				</li>
 			</ul>
 		</li>
-
-		<li class='active has-sub'><a href='#'><span>Delete</span></a>
+		
+		<li class='active has-sub'><a href='#'><span>Student's Subjects</span></a>
 			<ul>
-				<li class='last'><a href='<?php echo site_url('admin/delAdviser') ?>'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/add_subject') ?>'><span>Add Subject</span></a>
 				</li>
-				<li class='last'><a href='<?php echo site_url('admin/delete') ?>'><span>Student</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/edit_subject') ?>'><span>Edit Subject</span></a>
 				</li>
 			</ul>
 		</li>
 
+		<li class="pure-menu-item pure-menu-selected">
+			<a href="<?php echo site_url('admin/change_adviser') ?>" class="pure-menu-link navLink" id="logs">Change Adviser</a>
+		</li>
+		
 	</ul>
 </div>
 
@@ -88,7 +83,7 @@
                   </tr>
                   <tr>
                         <th>Relative</th>
-                        <td><input name="first_name" rows="5" cols="20"></td>
+                        <td><input name="relative" rows="5" cols="20"></td>
                         <th align="right" scope="row">&nbsp;</th>
                         <td><center><input type="submit" name="submit" value="Send" /></center></td>
                   </tr>

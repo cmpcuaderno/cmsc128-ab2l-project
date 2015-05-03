@@ -18,9 +18,6 @@
 <body>
 	<div class="header">
 		<div class="pure-g">
-			<!--<div class="pure-u-lg-7-8">
-				<!<h1 class="heading">Adviser-Student Records Management System</h1>
-			</div>-->
 		</div>
 	</div>
 	<div class="logo_login">
@@ -28,10 +25,8 @@
 	</div>
 	<div class="container">
 		<div class="userinput">
-			<?php echo validation_errors(); ?>
 			<?php echo form_open('verifylogin'); ?>
 			<form class="pure-form pure-form-aligned pure-img fieldsetclass" name="login" action="home.php" method="post">
-				<!--<fieldset>-->
 					<center>
 
 					<div class="pure-control-group">
@@ -58,7 +53,6 @@
 					</div>
 
 					</center>
-				<!--</fieldset>-->
 			</form>
 		</div>
 		
@@ -68,5 +62,4 @@
 	<div class="footer">
 	</div><div class="footer2">
 	</div>
-
-	
+	<div class="alert"><br><center><?php echo validation_errors(); ?></center></div>

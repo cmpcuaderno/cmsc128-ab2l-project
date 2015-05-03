@@ -38,10 +38,6 @@ Class Adviser_model extends CI_Model
    */
   public function update($employee_number) {
     $data = array(
-    'last_name' => $this->input->post('last_name'),
-    'first_name' => $this->input->post('first_name'),
-    'middle_name' =>  $this->input->post('middle_name'),
-    'level' => $this->input->post('level'),
     'specialization' =>  $this->input->post('specialization')
     );
 
@@ -70,4 +66,24 @@ Class Adviser_model extends CI_Model
 
       return $query->result_array();
   }
+
+  public function check_password($old){
+      $this->db->select('*');
+      $this->db->from('adviser');
+      $this->db->where('password', sha1($old));
+      $query = $this->db->get();
+      return $query;
+
+  }
+
+  public function change_password($username, $password, $newpassword){
+        $data =array(
+            'password' => $newpassword
+        );
+        $this->db->select('*');
+        $this->db->from('adviser');
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $this->db->update('adviser', $data);
+    }
 }

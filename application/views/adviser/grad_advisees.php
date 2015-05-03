@@ -1,4 +1,4 @@
-<div class="pure-menu adminnav">
+<div class="pure-menu adminnav" id="cssmenu">
 	<ul class="pure-menu-list custom-restricted-width">
 
 		<li class="pure-menu-item">
@@ -9,8 +9,12 @@
 			<a href="<?php echo site_url('adviser/edit') ?>" class="pure-menu-link navLink" id="update">Update Specialization</a>
 		</li>
 
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/change_password') ?>" class="pure-menu-link navLink" id="logs">Change Password</a>
+		</li>
+
 		<li class="pure-menu-item pure-menu-selected">
-			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
 		</li>
 
 		<li class="pure-menu-item">
@@ -19,10 +23,10 @@
 	</ul>
 </div>
 
-<div class="table-responsive logs container studentprofile">
-	<div class="body-panel">
-		<center>
-			<table border="true" class="mq-table pure-table-bordered pure-table">
+<center>
+<div class="body-panel pure-u-2-5 tableClass">
+	<center>
+		<table id="table" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th> Student Number </th>
@@ -40,11 +44,6 @@
 					}
 				?>
 		</table>
-		</center>
-
-		<div>
-		<?php echo "<label>Total Graduates: " . $var . "</label>"; ?>
-		</div>
-	</div>
+	</center>
 </div>
-
+</center>

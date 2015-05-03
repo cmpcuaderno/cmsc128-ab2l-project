@@ -13,15 +13,6 @@
 				</li>
 			</ul>
 		</li>
-		
-		<li class='active has-sub'><a href='#'><span>Update</span></a>
-			<ul>
-				<li class='last'><a href='#'><span>Adviser</span></a>
-				</li>
-				<li class='last'><a href='#'><span>Student</span></a>
-				</li>
-			</ul>
-		</li>
 
 		<li class='active has-sub'><a href='#'><span>View</span></a>
 			<ul>
@@ -33,16 +24,20 @@
 				</li>
 			</ul>
 		</li>
-
-		<li class='active has-sub'><a href='#'><span>Delete</span></a>
+		
+		<li class='active has-sub'><a href='#'><span>Student's Subjects</span></a>
 			<ul>
-				<li class='last'><a href='<?php echo site_url('admin/delAdviser') ?>'><span>Adviser</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/add_subject') ?>'><span>Add Subject</span></a>
 				</li>
-				<li class='last'><a href='<?php echo site_url('admin/delete') ?>'><span>Student</span></a>
+				<li class='last'><a href='<?php echo site_url('admin/edit_subject') ?>'><span>Edit Subject</span></a>
 				</li>
 			</ul>
 		</li>
 
+		<li class="pure-menu-item pure-menu-selected">
+			<a href="<?php echo site_url('admin/change_adviser') ?>" class="pure-menu-link navLink" id="logs">Change Adviser</a>
+		</li>
+		
 	</ul>
 </div>
 

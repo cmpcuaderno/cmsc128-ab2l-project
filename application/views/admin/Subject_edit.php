@@ -39,44 +39,46 @@
 		</li>
 		
 	</ul>
-</div>
+</div>		
 
-<center>
-	<div class="body-panel pure-u-2-5 tableClass">
-		<table id="table" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th scope="col">Employee Number</th>
-					<th scope="col">User Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Middle Name</th>
-					<th scope="col">Specialization</th>
-					<th scope="col">Level</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			<?php
-			if (isset($list['advisers'])){
-				foreach ($list['advisers'] as $log){
-					echo '<tr>';
-					echo '<td>' . $log->employee_number . '</td>';
-					echo '<td>' . $log->username . '</td>';
-					echo '<td>' . $log->last_name . '</td>';
-					echo '<td>' . $log->first_name . '</td>';
-					echo '<td>' . $log->middle_name . '</td>';
-					echo '<td>' . $log->specialization . '</td>';
-					echo '<td>' . $log->level . '</td>';
-					echo '<td> <a href="edit_adviser_details/' . $log->employee_number . '">Edit<a><br><a href="confirmed_delete_adviser/' . $log->employee_number . '">Delete<a></td>';
-					echo '</tr>';
-				}
-			} else {
-				echo "No advisers registered.";
-			}
-			?>
-			</tbody>
-		</table>
+<div>
+	<center>
+		<div>
+			<form class="pure-form" method="post" action="con_edit_subject">
+				<input class="pure-input"type="text" name="search_keyword" placeholder="Student Number" size="20" />
+				<input class="pure-button"type="submit" name="submit" value="Search" />
+			</form>
+		</div>
+		<br>
+	<div>
+		<table class="pure-table" width="600" border="1" cellpadding="5">
+    
+        <tr>
+            <th scope="col">Student Number</th>
+            <th scope="col">Course Code</th>
+            <th scope="col">Year Taken</th>
+            <th scope="col">Term Taken</th>
+            <th scope="col">Final Grade</th>
+        </tr>
+
+        <?php 
+        if (isset($list)){
+        foreach ($list as $u_key){ ?>
+
+        <tr>
+
+            <td><?php echo $u_key->student_number; ?></td>
+            <td><?php echo $u_key->course_code; ?></td>
+            <td><?php echo $u_key->year_taken; ?></td>
+            <td><?php echo $u_key->term_taken; ?></td>
+            <td><?php echo $u_key->final_grade; ?></td>
+            <td witdth="40" align="left"><a href="<?php echo site_url('admin/edit_subject_details') ?>/<?php echo $u_key->student_number?>">Edit</a></td>
+        </tr>
+
+        <?php }}?>
+
+    </table>
+
 	</div>
-</center>
+	</center>
+</div>

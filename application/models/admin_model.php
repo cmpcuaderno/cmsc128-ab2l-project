@@ -46,7 +46,7 @@
             
             return $rv;
 		
-		return $query->result();
+			return $query->result();
         }
         
         public function delAdviser($employee_number){
@@ -60,6 +60,19 @@
 
 			$this->db->where('employee_number', $employee_number);
 			$this->db->delete('adviser', $data);
+        }
+		
+		public function search_adviser($keyword){
+			$this->db->like('employee_number', $keyword);
+			$this->db->or_like('username', $keyword);
+			$query = $this->db->get('adviser');
+				
+			return $query->result();
+        }
+		
+		public function edit_adviser($employee_number, $data){
+		$this->db->where('employee_number', $employee_number);
+		$this->db->update('adviser', $data);
         }
 		
         public function createLog($username, $action){
@@ -86,42 +99,64 @@
             return $rv;
         }
         
-        //student section
-        public function get_all_students(){
-            $query = $this->db->get('student');
+	//student section
+	public function get_all_students(){
+		$query = $this->db->get('student');
 
-            return $query->result();
-        }
-        
-        public function insert_student_to_db($data){
-            return $this->db->insert('student', $data);
-        }
-        
-        public function search_student($keyword){
-            $this->db->like('student_number', $keyword);
-            $this->db->or_like('username', $keyword);
-            $query = $this->db->get('student');
-            
-            return $query->result();
-        }
-        
-        public function getById($studnum){
-            $query = $this->db->get_where('student',array('student_number'=>$studnum));
-        
-            return $query->row_array();
-        }
-        
-        public function update_info($data, $studnum){
-            $this->db->where('student.student_number', $studnum);
-            
-            return $this->db->update('student', $data);
-        }
-
-        public function delete_a_student($studnum){
-            $this->db->where('student.student_number',$studnum);
+		return $query->result();
+	}
 	
-            return $this->db->delete('student');
+	public function insert_student_to_db($data){
+		return $this->db->insert('student', $data);
+	}
+	
+	public function delStudent($student_number){
+		$this->db->where('student_number', $student_number);
+            $this->db->delete('student');
+            
+            $this->db->where('student_number', $student_number);
+            $this->db->delete('student_adviser');
+	}
+	
+	public function edit_student($student_number, $data){
+		$this->db->where('student_number', $student_number);
+		$this->db->update('student', $data);
+	}
+
+	
+	public function search_student($keyword){
+		$this->db->like('student_number', $keyword);
+		$this->db->or_like('username', $keyword);
+		$query = $this->db->get('student');
+		
+		return $query->result();
+	}
+	
+	public function search_student_adviser($keyword){
+            $this->db->like('student_number', $keyword);
+            $query = $this->db->get('student_adviser');
+            
+            return $query->result();
         }
         
-
-    }
+        public function adviser_change($student_number, $data){
+            $this->db->where('student_number', $student_number);
+            $this->db->update('student_adviser', $data);
+        }
+        
+        public function insert_subject_to_db($data){
+            return $this->db->insert('student_course', $data);
+        }
+        
+        public function search_student_subject($keyword){
+            $this->db->like('student_number', $keyword);
+            $query = $this->db->get('student_course');
+            
+            return $query->result();
+        }
+        
+        public function change_subject($student_number, $data){
+            $this->db->where('student_number', $student_number);
+            $this->db->update('student_course', $data);
+        }
+}

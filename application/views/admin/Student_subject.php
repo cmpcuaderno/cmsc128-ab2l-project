@@ -41,42 +41,55 @@
 	</ul>
 </div>
 
+     <form method="post" action="search_student_keyword">
+	<input type="text" name="search_keyword" size="20" />
+	<input type="submit" name="submit" value="Search" />
+     </form>
+    
 <center>
-	<div class="body-panel pure-u-2-5 tableClass">
+<div class="body-panel pure-u-2-5 tableClass">
+	<center>
 		<table id="table" class="display" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th scope="col">Employee Number</th>
-					<th scope="col">User Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Middle Name</th>
-					<th scope="col">Specialization</th>
-					<th scope="col">Level</th>
-					<th scope="col">Actions</th>
+					<th class="highlight" scope="col">Student Number</th>
+					<th class="highlight" scope="col">User Name</th>
+					<th class="highlight" scope="col">Name</th>
+					<th class="highlight" scope="col">Classification</th>
+					<th class="highlight" scope="col">Curriculum</th>
+					<th class="highlight" scope="col">Contact Number</th>
+					<th class="highlight" scope="col">Email Address</th>
+					<th class="highlight" scope="col">College Address</th>
+					<th class="highlight" scope="col">Home Address</th>
+					<th class="highlight" scope="col">Relative</th>
+					<th class="highlight" scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
+				
 			
-			<?php
-			if (isset($list['advisers'])){
-				foreach ($list['advisers'] as $log){
-					echo '<tr>';
-					echo '<td>' . $log->employee_number . '</td>';
-					echo '<td>' . $log->username . '</td>';
-					echo '<td>' . $log->last_name . '</td>';
-					echo '<td>' . $log->first_name . '</td>';
-					echo '<td>' . $log->middle_name . '</td>';
-					echo '<td>' . $log->specialization . '</td>';
-					echo '<td>' . $log->level . '</td>';
-					echo '<td> <a href="edit_adviser_details/' . $log->employee_number . '">Edit<a><br><a href="confirmed_delete_adviser/' . $log->employee_number . '">Delete<a></td>';
-					echo '</tr>';
-				}
-			} else {
-				echo "No advisers registered.";
-			}
-			?>
+
+        <?php foreach ($user_list as $u_key){
+			echo '<tr>';
+			echo '<td>' . $u_key->student_number . '</td>';
+			echo '<td>' . $u_key->username . '</td>';
+			echo '<td>' . $u_key->first_name." ".$u_key->middle_name." ". $u_key->last_name.'</td>';
+			
+			echo '<td>' . $u_key->classification . '</td>';
+			echo '<td>' . $u_key->curriculum . '</td>';
+			echo '<td>' . $u_key->contact_number . '</td>';
+			echo '<td>' . $u_key->email_address . '</td>';
+			echo '<td>' . $u_key->college_address . '</td>';
+			echo '<td>' . $u_key->home_address . '</td>';
+			echo '<td>' . $u_key->relative . '</td>';
+			echo '<td><a href="edit_student_details/' . $u_key->student_number . '">Edit</a><br><a href="">Delete<a><br><a href="">Change adviser<a></td>';
+			echo '</tr>';
+
+        } ?>
+		
+			
 			</tbody>
 		</table>
-	</div>
+	</center>
+</div>
 </center>

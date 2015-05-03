@@ -33,7 +33,7 @@
 				<div class="success">
 			        <?php 
 			        if(!is_null($message)){ 
-			            echo $message."<br>";
+			            echo $message."<br><br>";
 			        } ?>
 			    </div>
 
@@ -70,22 +70,23 @@
 					<tr>	
 						<td>E-mail Address: </td>
 						<td>
-							<input type="text" name="email_address" size="50" value="<?php echo $stud->email_address ?>">
+							<input type="text" name="email_address" size="36" value="<?php echo $stud->email_address ?>">
 							<?php echo form_error('email_address');  ?>
 						</td>
 					</tr>
 					<tr>	
 						<td>College Address: </td>
 						<td>
-							<input type="text" name="college_address" size="80" value="<?php echo $stud->college_address ?>">
-							<?php echo form_error('college_address');  ?>
+							
+							<textarea type="text" name="college_address" cols="40" rows="4"><?php echo $stud->home_address ?>
+							<?php echo form_error('college_address');  ?></textarea>
 						</td>
 					</tr>
 					<tr>	
 						<td>Home Address: </td>
 						<td>
-							<input type="text" name="home_address" size="80" value="<?php echo $stud->home_address ?>">
-							<?php echo form_error('home_address');  ?>
+							<textarea type="text" name="home_address" cols="40" rows="4"><?php echo $stud->home_address ?>
+							<?php echo form_error('home_address');  ?></textarea>
 						</td>
 					</tr>
                     

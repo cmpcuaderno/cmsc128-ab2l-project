@@ -34,7 +34,7 @@
 			<table border="true" class="mq-table pure-table-bordered pure-table">
 				<tr>
 					<td>Name: </td>
-					<td><?php echo $stud->last_name.','. $stud->first_name.' '.$stud->middle_name?></td>
+					<td><?php echo $stud->last_name.', '. $stud->first_name.' '.$stud->middle_name?></td>
 				</tr>
 				<tr>
 					<td>Student Number: </td>
@@ -63,10 +63,6 @@
 				<tr>
 					<td>Home Address: </td>
 					<td><?php echo $stud->home_address ?></td>
-				</tr>
-				<tr>
-					<td>Member since: </td>
-					<td>2010</td>
 				</tr>
 			</table>
 		<?php endforeach; ?>

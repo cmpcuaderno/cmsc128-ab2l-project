@@ -1,9 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Adviser extends CI_Controller{
-	/**
-	 * temporary. will be removed once log in is implemented
-	 */
 
 	/**
 	 * load the adviser model
@@ -16,6 +13,15 @@ class Adviser extends CI_Controller{
 
 	public function index(){
 		$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
 
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
@@ -33,6 +39,15 @@ class Adviser extends CI_Controller{
 	public function profile(){
 		$this->check_session();
 
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
 		$data['adviser'] = $this->adviser_model->get_adviser($data['username']);
@@ -47,6 +62,15 @@ class Adviser extends CI_Controller{
 	 */
 	public function edit(){
 		$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
 
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
@@ -64,6 +88,15 @@ class Adviser extends CI_Controller{
 	public function update($en){
 		$this->check_session();
 
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
 		$this->load->helper('url');
 		$this->adviser_model->update($en);
 
@@ -76,6 +109,15 @@ class Adviser extends CI_Controller{
 	 */
 	public function grad_advisees(){
 		$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
 
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
@@ -94,6 +136,15 @@ class Adviser extends CI_Controller{
 	 */
 	public function view_advisee($student_number = null) {
 		$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
 
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
@@ -190,6 +241,15 @@ class Adviser extends CI_Controller{
 	public function advisees() {
 		$this->check_session();
 
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
 		$data['adviser'] = $this->adviser_model->get_adviser($data['username']);
@@ -207,4 +267,88 @@ class Adviser extends CI_Controller{
 			redirect('login', 'refresh');
 		}
 	}
+
+	public function password_check($password) {
+   			$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
+			$session_data = $this->session->userdata('logged_in');
+			$password_session = $session_data['password'];
+
+			if (sha1($password) == $password_session) {
+				return TRUE;
+			}
+			else {
+				$this->form_validation->set_message('password_check', 'The current password you entered is invalid.');
+				return FALSE;
+			}
+		}
+
+	function validate_password(){
+			$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
+			$session_data = $this->session->userdata('logged_in');
+			$username_session = $session_data['username'];
+			$password_session = $session_data['password'];
+
+	        $this->load->library('form_validation');
+	        $this->form_validation->set_rules('opword', 'current password', 'required|trim|callback_password_check');
+	        $this->form_validation->set_rules('npword1', 'new password', 'required|trim|min_length[6]');
+	        $this->form_validation->set_rules('npword2', 'retype password', 'required|matches[npword1]|trim|min_length[6]');
+	        $this->form_validation->set_message('matches', 'Password did not match.');
+	        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
+	        if ($this->form_validation->run() == TRUE){
+				$newpassword = sha1($this->input->post('npword2'));
+				$password = sha1($this->input->post('opword'));
+
+				$this->adviser_model->change_password($username_session, $password,$newpassword);
+				$data['message'] = "Change password successful.";
+				$this->load->view('components/header.php');
+				$this->load->view('adviser/change_password', $data);
+				$this->load->view('components/footer.php');
+	        }
+	        else{
+	        	$data['message'] ="";
+		        $this->load->view('components/header.php');
+		        $this->load->view('adviser/change_password',$data);
+		        $this->load->view('components/footer.php');
+	        }
+   		}
+   	function change_password(){
+			$this->check_session();
+
+		$role = $this->session->userdata('table');
+		if($role != 'adviser') {
+			$this->load->view('components/header.php');
+			$this->load->view('restricted.php');
+			$this->load->view('components/footer.php');
+
+			return;
+		}
+
+			$data['message'] = "";
+
+			$this->load->view('components/header.php');
+			$this->load->view('adviser/change_password', $data);
+			$this->load->view('components/footer.php');
+
+		}
 }

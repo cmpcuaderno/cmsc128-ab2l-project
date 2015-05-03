@@ -41,42 +41,39 @@
 	</ul>
 </div>
 
-<center>
-	<div class="body-panel pure-u-2-5 tableClass">
-		<table id="table" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th scope="col">Employee Number</th>
-					<th scope="col">User Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Middle Name</th>
-					<th scope="col">Specialization</th>
-					<th scope="col">Level</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			<?php
-			if (isset($list['advisers'])){
-				foreach ($list['advisers'] as $log){
-					echo '<tr>';
-					echo '<td>' . $log->employee_number . '</td>';
-					echo '<td>' . $log->username . '</td>';
-					echo '<td>' . $log->last_name . '</td>';
-					echo '<td>' . $log->first_name . '</td>';
-					echo '<td>' . $log->middle_name . '</td>';
-					echo '<td>' . $log->specialization . '</td>';
-					echo '<td>' . $log->level . '</td>';
-					echo '<td> <a href="edit_adviser_details/' . $log->employee_number . '">Edit<a><br><a href="confirmed_delete_adviser/' . $log->employee_number . '">Delete<a></td>';
-					echo '</tr>';
-				}
-			} else {
-				echo "No advisers registered.";
-			}
-			?>
+<div class="body-panel">
+    <center>
+      <table class="pure-table">
+          <form class="pure-table" method="post" action="insert_subject">
+			<tr>
+				<th width="213" align="right" scope="row">Student Number </th>
+				<td width="161"><input type="text" name="student_number" size="20" /></td>
+			</tr>
+                   <tr>
+		<th align="right" scope="row">Course Code </th>
+		<td><input type="text" name="course_code" size="20" /></td>
+            </tr>
+
+            <tr>
+		<th align="right" scope="row">Year Taken </th>
+		<td><input type="text" name="year_taken" size="20" /></td>
+            </tr>
+
+            <tr>
+		<th width="213" align="right" scope="row">Term Taken </th>
+		<td width="161"><input type="text" name="term_taken" size="20" /></td>
+            </tr>
+            
+            <tr>
+		<th align="right" scope="row">Final Grade </th>
+                <td width="161"><input type="text" name="final_grade" size="20" /></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><center><input class="pure-button" type="submit" name="submit" value="Add subject" /></center></td>
+            </tr>
 			</tbody>
 		</table>
+	
 	</div>
 </center>

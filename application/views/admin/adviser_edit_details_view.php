@@ -41,42 +41,30 @@
 	</ul>
 </div>
 
-<center>
-	<div class="body-panel pure-u-2-5 tableClass">
-		<table id="table" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th scope="col">Employee Number</th>
-					<th scope="col">User Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Middle Name</th>
-					<th scope="col">Specialization</th>
-					<th scope="col">Level</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			<?php
-			if (isset($list['advisers'])){
-				foreach ($list['advisers'] as $log){
-					echo '<tr>';
-					echo '<td>' . $log->employee_number . '</td>';
-					echo '<td>' . $log->username . '</td>';
-					echo '<td>' . $log->last_name . '</td>';
-					echo '<td>' . $log->first_name . '</td>';
-					echo '<td>' . $log->middle_name . '</td>';
-					echo '<td>' . $log->specialization . '</td>';
-					echo '<td>' . $log->level . '</td>';
-					echo '<td> <a href="edit_adviser_details/' . $log->employee_number . '">Edit<a><br><a href="confirmed_delete_adviser/' . $log->employee_number . '">Delete<a></td>';
-					echo '</tr>';
-				}
-			} else {
-				echo "No advisers registered.";
-			}
-			?>
-			</tbody>
-		</table>
-	</div>
-</center>
+<div>
+	<center>
+			<?php foreach($adviser as $ad) : ?>
+				<form method="POST" action="<?php echo base_url();?>index.php/admin/confirmed_edit_adviser" class="mq-table">
+					<table border="true" class="pure-table">
+						<tr>
+							<td>Name: </td>
+							<td><input type="hidden" name="employee_number" value="<?php echo $ad->employee_number ?>">
+							<input type="text" name="last_name" value="<?php echo $ad->last_name ?>">
+							<input type="text" name="first_name" value="<?php echo $ad->first_name ?>">
+							<input type="text" name="middle_name" value="<?php echo $ad->middle_name ?>"></td>
+						</tr>
+						<tr>
+							<td>Specialization: </td>
+							<td><input class="pure-input" type="text" name="specialization" value="<?php echo $ad->specialization ?>"></td>
+						</tr>
+						<tr>
+							<td>Level: </td>
+							<td><input class="pure-input" type="text" name="level" value="<?php echo $ad->level ?>"></td>
+						</tr>
+					</table>
+					<br><br>
+					<button class="pure-button" type="submit">Update</button>
+				</form>
+			<?php endforeach; ?>
+	</center>
+</div>

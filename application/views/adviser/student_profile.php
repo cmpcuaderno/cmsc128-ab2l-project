@@ -10,7 +10,7 @@
 		</li>
 
 		<li class="pure-menu-item">
-			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
 		</li>
 
 		<li class="pure-menu-item">

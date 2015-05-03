@@ -68,7 +68,7 @@
 				</tr>
 			<?php 
 				endforeach;
-			}else echo "No grades.";
+			}else echo "No grades.<br><br>";
 			?>
 				</tbody>
 			</table>

@@ -1,4 +1,4 @@
-<div class="pure-menu adminnav">
+<div class="pure-menu adminnav" id="cssmenu">
 	<ul class="pure-menu-list custom-restricted-width">
 
 		<li class="pure-menu-item">
@@ -10,7 +10,11 @@
 		</li>
 
 		<li class="pure-menu-item">
-			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduated Advisees</a>
+			<a href="<?php echo site_url('adviser/change_password') ?>" class="pure-menu-link navLink" id="logs">Change Password</a>
+		</li>
+
+		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
 		</li>
 
 		<li class="pure-menu-item">

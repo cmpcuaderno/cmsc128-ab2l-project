@@ -40,43 +40,34 @@
 		
 	</ul>
 </div>
-
-<center>
-	<div class="body-panel pure-u-2-5 tableClass">
-		<table id="table" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th scope="col">Employee Number</th>
-					<th scope="col">User Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">First Name</th>
-					<th scope="col">Middle Name</th>
-					<th scope="col">Specialization</th>
-					<th scope="col">Level</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			<?php
-			if (isset($list['advisers'])){
-				foreach ($list['advisers'] as $log){
-					echo '<tr>';
-					echo '<td>' . $log->employee_number . '</td>';
-					echo '<td>' . $log->username . '</td>';
-					echo '<td>' . $log->last_name . '</td>';
-					echo '<td>' . $log->first_name . '</td>';
-					echo '<td>' . $log->middle_name . '</td>';
-					echo '<td>' . $log->specialization . '</td>';
-					echo '<td>' . $log->level . '</td>';
-					echo '<td> <a href="edit_adviser_details/' . $log->employee_number . '">Edit<a><br><a href="confirmed_delete_adviser/' . $log->employee_number . '">Delete<a></td>';
-					echo '</tr>';
-				}
-			} else {
-				echo "No advisers registered.";
-			}
-			?>
-			</tbody>
-		</table>
-	</div>
-</center>
+<div>
+	<center>
+		<?php foreach($student as $s) { ?>
+			<form method="POST" action="<?php echo base_url();?>index.php/admin/confirmed_edit_subject" class="mq-table">
+				<table border="true" class="pure-table">
+					<tr>
+						<td>Course Code: </td>
+						<td><input type="hidden" name="student_number" value="<?php echo $s->student_number ?>">
+						<input type="text" name="course_code" value="<?php echo $s->course_code ?>">
+					</tr>
+					<tr>
+						<td>Year Taken: </td>
+						<td><input class="pure-input" type="text" name="year_taken" value="<?php echo $s->year_taken ?>"></td>
+					</tr>
+					<tr>
+						<td>Term Taken: </td>
+						<td><input class="pure-input" type="text" name="term_taken" value="<?php echo $s->term_taken ?>"></td>
+					</tr>
+					
+					<tr>
+						<td>Final Grade: </td>
+						<td><input class="pure-input" type="text" name="final_grade" value="<?php echo $s->final_grade ?>"></td>
+					</tr>
+					
+				</table>
+				<br><br>
+				<button class="pure-button" type="submit">Update</button>
+			</form>
+		<?php }?>
+	</center>
+</div>

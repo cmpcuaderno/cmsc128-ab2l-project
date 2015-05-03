@@ -14,6 +14,15 @@
 		*/
 		public function index(){
 			$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
 			
 			$session_data = $this->session->userdata('logged_in');
             
@@ -29,6 +38,15 @@
 		*/
 		public function grades(){
 			$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
 
 			$session_data = $this->session->userdata('logged_in');
 
@@ -46,6 +64,15 @@
 		function update(){
 			$this->check_session();
 
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+
 			$session_data = $this->session->userdata('logged_in');
 			
 			$data['student'] = $this->student_model->search_student($session_data['username'],$session_data['password']);
@@ -62,6 +89,15 @@
 		function update_student() {
 			$this->check_session();
 
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+
 			$session_data = $this->session->userdata('logged_in');
 			$username = $session_data['username'];
 			$password = $session_data['password'];
@@ -76,7 +112,7 @@
 			$this->student_model->update_student($username,$password,$data);
 
 			$data['student'] = $this->student_model->search_student($username, $password);
-			$data['message']="Update student profile successful";
+			$data['message']="Update student profile successful.";
 
 			$this->load->view('components/header.php');
 			$this->load->view('student/student_update',$data);
@@ -110,6 +146,15 @@
 		function change(){
 			$this->check_session();
 
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+
 			$data['message'] = "";
  
 			$this->load->view('components/header.php');
@@ -123,6 +168,15 @@
 		*/
 		function validate_password(){
 			$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
 
 			$session_data = $this->session->userdata('logged_in');
 			$username_session = $session_data['username'];
@@ -159,6 +213,15 @@
    		public function password_check($password) {
    			$this->check_session();
 
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+
 			$session_data = $this->session->userdata('logged_in');
 			$password_session = $session_data['password'];
 
@@ -176,6 +239,16 @@
     	*/
 		function adviser(){
 			$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+			
 			$data['query']= $this->student_model->view_all_advisers();
 
 			$this->load->view('components/header.php');
@@ -188,6 +261,16 @@
 		*/
 		function student_adviser(){
    			$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'student') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+			
 			$session_data = $this->session->userdata('logged_in');
 			$username = $session_data['username'];
 			$data['query']= $this->student_model->view_adviser($username);			
@@ -201,7 +284,8 @@
    		*/
 		public function check_session(){
 			if(!$this->session->userdata('logged_in')){
-				/* if no session, redirect to login page */
+				//If no session, redirect to login page
+				$this->load->helper('url');
 				redirect('login', 'refresh');
 			}
 		}
