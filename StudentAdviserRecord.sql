@@ -79,7 +79,8 @@ CREATE TABLE IF NOT EXISTS `adviser` (
   `first_name` varchar(25) NOT NULL,
   `middle_name` varchar(25) NOT NULL,
   `specialization` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL
+  `level` varchar(255) NOT NULL,
+  `picture` varchar(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
