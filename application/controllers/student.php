@@ -23,9 +23,9 @@
 
 				return;
 			}
-			
+
 			$session_data = $this->session->userdata('logged_in');
-            
+
 			$data['student'] = $this->student_model->search_student($session_data['username'],$session_data['password']);
 
 			$this->load->view('components/header.php');
@@ -74,7 +74,7 @@
 			}
 
 			$session_data = $this->session->userdata('logged_in');
-			
+
 			$data['student'] = $this->student_model->search_student($session_data['username'],$session_data['password']);
 			$data['message']="";
 
@@ -156,7 +156,7 @@
 			}
 
 			$data['message'] = "";
- 
+
 			$this->load->view('components/header.php');
 			$this->load->view('student/student_change_password', $data);
 			$this->load->view('components/footer.php');
@@ -185,10 +185,10 @@
 	        $this->load->library('form_validation');
 	        $this->form_validation->set_rules('opword', 'current password', 'required|trim|callback_password_check');
 	        $this->form_validation->set_rules('npword1', 'new password', 'required|trim|min_length[6]');
-	        $this->form_validation->set_rules('npword2', 'retype password', 'required|matches[npword1]|trim|min_length[6]');    
+	        $this->form_validation->set_rules('npword2', 'retype password', 'required|matches[npword1]|trim|min_length[6]');
 	        $this->form_validation->set_message('matches', 'Password did not match.');
 	        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-	   
+
 	        if ($this->form_validation->run() == TRUE){
 				$newpassword = sha1($this->input->post('npword2'));
 				$password = sha1($this->input->post('opword'));
@@ -203,8 +203,8 @@
 	        	$data['message'] ="";
 		        $this->load->view('components/header.php');
 		        $this->load->view('student/student_change_password',$data);
-		        $this->load->view('components/footer.php'); 
-	        } 
+		        $this->load->view('components/footer.php');
+	        }
    		}
 
    		/*
@@ -233,7 +233,7 @@
 				return FALSE;
 			}
 		}
-    
+
     	/*
 			view all advisers
     	*/
@@ -248,11 +248,11 @@
 
 				return;
 			}
-			
+
 			$data['query']= $this->student_model->view_all_advisers();
 
 			$this->load->view('components/header.php');
-			$this->load->view('student/student_adviser',$data);	
+			$this->load->view('student/student_adviser',$data);
 			$this->load->view('components/footer.php');
 		}
 
@@ -270,12 +270,12 @@
 
 				return;
 			}
-			
+
 			$session_data = $this->session->userdata('logged_in');
 			$username = $session_data['username'];
-			$data['query']= $this->student_model->view_adviser($username);			
+			$data['query']= $this->student_model->view_adviser($username);
 			$this->load->view('components/header.php');
-			$this->load->view('student/student_view_adviser',$data);	
+			$this->load->view('student/student_view_adviser',$data);
 			$this->load->view('components/footer.php');
    		}
 

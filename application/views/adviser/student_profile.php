@@ -1,4 +1,4 @@
-<div class="pure-menu adminnav">
+<div class="pure-menu adminnav" id="cssmenu">
 	<ul class="pure-menu-list custom-restricted-width">
 
 		<li class="pure-menu-item">
@@ -10,10 +10,14 @@
 		</li>
 
 		<li class="pure-menu-item">
-			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
+			<a href="<?php echo site_url('adviser/change_password') ?>" class="pure-menu-link navLink" id="logs">Change Password</a>
 		</li>
 
 		<li class="pure-menu-item">
+			<a href="<?php echo site_url('adviser/grad_advisees') ?>" class="pure-menu-link navLink" id="logs">View Graduate Advisees</a>
+		</li>
+
+		<li class="pure-menu-item pure-menu-selected">
 			<a href="<?php echo site_url('adviser/advisees') ?>" class="pure-menu-link navLink" id="logs">View Advisees</a>
 		</li>
 	</ul>
@@ -21,6 +25,12 @@
 
 <div class="table-responsive logs container studentprofile">
 	<div class="body-panel">
+	<center>
+		<a href="<?php echo site_url('adviser/view_advisee/'.$student['student_number'].'') ?>" class="pure-button">Student Profile</a>
+		<a href="<?php echo site_url('adviser/grades/'.$student['student_number'].'') ?>" class="pure-button">Student Grades</a>
+		<a href="<?php echo site_url('adviser/advisees') ?>" class="pure-button">Back to list</a>
+	</center>
+	<br><br>
 		<center>
 			<table border="true" class="mq-table pure-table-bordered pure-table">
 				<tr>
