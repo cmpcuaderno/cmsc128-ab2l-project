@@ -332,6 +332,10 @@ class Adviser extends CI_Controller{
 		        $this->load->view('components/footer.php');
 	        }
    		}
+
+   	/**
+   	 * Change password of logged in adviser
+   	 */
    	function change_password(){
 			$this->check_session();
 
@@ -351,4 +355,29 @@ class Adviser extends CI_Controller{
 			$this->load->view('components/footer.php');
 
 		}
+
+	/**
+	 * view grades of student number
+	 * @param  string $student_number target advisee's student number
+	 */
+	public function grades($student_number) {
+		$this->check_session();
+
+			$role = $this->session->userdata('table');
+			if($role != 'adviser') {
+				$this->load->view('components/header.php');
+				$this->load->view('restricted.php');
+				$this->load->view('components/footer.php');
+
+				return;
+			}
+
+			$session_data = $this->session->userdata('logged_in');
+			$data['grades'] = $this->adviser_model->fetch_student_grades($student_number);
+			$data['student_number'] = $student_number;
+
+			$this->load->view('components/header.php');
+			$this->load->view('adviser/student_grades', $data);
+			$this->load->view('components/footer.php');
+	}
 }

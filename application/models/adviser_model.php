@@ -86,4 +86,24 @@ Class Adviser_model extends CI_Model
         $this->db->where('password', $password);
         $this->db->update('adviser', $data);
     }
+  /**
+   * get grades of student with specified student number
+   * @param  string $student_number target student's student number
+   * @return array of student's grades
+   */
+  public function fetch_student_grades($student_number) {
+    $this->db->select('*');
+        $this->db->from('student_course');
+        $this->db->where('student_number', $student_number);
+        $this->db->order_by('year_taken', 'incr');
+        $this->db->order_by('term_taken', 'incr');
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+          return $query->result();
+        }
+        else {
+          return false;
+        }
+  }
 }
