@@ -23,7 +23,12 @@
 	</ul>
 </div>
 	<div class="body-panel">
-	<a href="<?php echo site_url('adviser/view_advisee/' . $student_number) ?>">Back to Profile</a>
+	<center>
+		<a href="<?php echo site_url('adviser/view_advisee/'.$student_number.'') ?>" class="pure-button">Student Profile</a>
+		<a href="<?php echo site_url('adviser/grades/'.$student_number.'') ?>" class="pure-button">Student Grades</a>
+		<a href="<?php echo site_url('adviser/advisees') ?>" class="pure-button">Back to list</a>
+	</center>
+	<br><br>
 		<center>
 			<table border="true" class="mq-table pure-table-bordered pure-table" width="60%">
 				<thead>
