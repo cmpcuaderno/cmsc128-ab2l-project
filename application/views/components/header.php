@@ -46,7 +46,7 @@
 				<h1 class="heading">Adviser-Student Records Management System</h1>
 			</div>
 			<div class="pure-u-lg-1-8">
-				<a href="<?php echo base_url('logout') ?>" class="pure-button button-logout">Log out</a>
+				<a href="<?php echo base_url('index.php/logout') ?>" class="pure-button button-logout">Log out</a>
 			</div>
 		</div>
 	</div>
